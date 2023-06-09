@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "mums"
+    },
+    {
+      "id": 997,
+      "name": "gubben",
+      "password": "gumman"
+    },
+    {
+      "id": 2162,
+      "name": "Moa",
+      "password": "Victor"
+    }
+  ],
+  "messages": []
+}

@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.users-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(72, 72, 72);
+    padding: 3em;
+    gap: 1em;
+}
+.user-div{
+    color: white ;
+}
+.user-li{
+    list-style: none;
+}
+
+.user-button{
+    display: flex;
+    gap: 1em;
+    margin: 1em;
+
+}
+.user-btn{
+    background-color: rgb(27, 26, 26);
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: .4em .2em;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+.user-btn:hover{
+    background-color: white;
+    color: rgb(27, 26, 26);
+}

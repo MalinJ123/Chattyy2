@@ -1,0 +1,41 @@
+.header-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.settings-navbar{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content:start ;
+    gap: 1em;
+    top: 3em;
+    right: 0;
+    background-color: rgb(28, 28, 28);
+    color: white;
+    width:140px;
+    height: 70vh;
+}
+
+.settings-navbar a{
+    color: white;
+    align-self: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navlink-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em 0;
+    gap: 1.5em;
+    width: 100%;
+}
+hr{
+    border: 1px solid white;
+    border-width: 1.5px;
+    padding: 0 3.65em;
+}

@@ -1,0 +1,98 @@
+.main-form{
+    margin-top: 2em;
+    position: absolute;
+    top: 5em;
+    z-index: 1;
+    background-color: rgba(14, 12, 12, 0.833);
+    padding: 2em;
+    border-radius: 10%;
+    right: 35%;
+}
+
+.form-div{
+    display: flex;
+    flex-direction: column;
+    padding: 5em;
+    border-radius: 10px;
+    gap: 1em;
+    color: white;
+}
+.title{
+margin-bottom: 1em;
+}
+
+.form-header{
+    display: flex;
+    justify-content: center;
+
+}
+.input-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: smaller;
+}
+
+input{
+    align-self: center;
+    /* width: 200px;
+     */
+
+}
+
+label{
+    align-self: right;
+    margin-bottom: 0.2em;
+    font-weight: lighter;
+}
+.login-div{
+    display: flex;
+    justify-content: center;
+}
+.login-btn{
+    background-color: rgb(27, 26, 26);
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: .4em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+.login-btn:hover{
+    background-color: white;
+    color: rgb(27, 26, 26);
+}
+
+@media screen and (max-width: 790px){
+    .main-form{
+        margin-top: 2em;
+        position: absolute;
+        top: 5em;
+        z-index: 1;
+        background-color: rgba(14, 12, 12, 0.833);
+        padding: 2em;
+        border-radius: 10%;
+        right: 25%;
+    }
+  
+}
+@media screen and (max-width: 549px){
+    .main-form{
+        margin-top: 2em;
+        position: absolute;
+        top: 6em;
+        z-index: 1;
+        border-radius: 10%;
+        right: 8%;
+    }
+    .form-div{
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        border-radius: 10px;
+        gap: 2em;
+        color: white;
+    }
+  
+}
