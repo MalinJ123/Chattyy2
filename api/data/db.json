@@ -16,5 +16,26 @@
       "password": "Victor"
     }
   ],
-  "messages": []
+  "messages": [
+    {
+      "userId": 1,
+      "message": "hej hur mår du 123?"
+    },
+    {
+      "userId": 2162,
+      "message": "id 3 "
+    },
+    {
+      "userId": 4,
+      "message": " detta är id 4 "
+    },
+    {
+      "userId": 99,
+      "message": " detta är id 99 "
+    },
+    {
+      "userId": 299,
+      "message": " EEEEEEEMMMMMMa "
+    }
+  ]
 }

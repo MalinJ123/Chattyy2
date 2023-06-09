@@ -5,10 +5,10 @@ import { getDb } from '../data/database.js'
 const router = express.Router()
 const db = getDb()
 
-// // GET Products 
+// // GET Public 
 // router.get('/', async (req, res) => {
 // 	await db.read() 
-// 	res.status(200).send(db.data.products)
+// 	res.status(200).send(db.data.public)
 
 
 // })

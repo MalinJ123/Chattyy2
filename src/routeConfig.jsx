@@ -6,9 +6,9 @@ import Start from "../routes/Start";
 import Public from "../routes/Public";
 
 import Users, {loader as userLoader} from "../routes/Users";
-// import ToUpdateProduct from "../components/UpdateProduct";
 import PostUser from "../components/AddUser";
-// import AddProduct from "../routes/AddProduct";
+import DmMessages from "../routes/DmMessages";
+
 
 
 const router = createBrowserRouter([
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
                 path: '/user/add',
                 element: <PostUser />,
             },
+            {
+                path: '/messages',
+                element: <DmMessages username="PratgladPelle" />,
+              },
         ]
     }
 ])

@@ -148,5 +148,8 @@ router.put("/:id", async (req, res) => {
 });
 
 
+//userID för att hämta meddelandena? 
+
+
 
 export default router;

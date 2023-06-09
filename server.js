@@ -1,14 +1,18 @@
 import express from "express";
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import * as dotenv from 'dotenv'
+
 // Routers
 import publicRouter from "./api/routes/public.js";
 import usersRouter from "./api/routes/users.js";
 import searchQuery from "./api/routes/search.js";
+import messagesRouter from "./api/routes/messages.js";
 
 // Express saker
-const PORT = 31140
+dotenv.config()
 const app = express()
+const PORT = process.env.PORT || 31140
 
 // The middlemen are looking at us
 
@@ -45,8 +49,11 @@ app.use( express.static(dist) )
 // -> CRUD products
 app.use('/api/public', publicRouter)
 
+// -> Messages 
+app.use('/api/messages', messagesRouter)
+
 // -> Search products
-app.get('/api/search', searchQuery)
+app.use('/api/search', searchQuery)
 
 // -> CRUD users
 app.use('/api/users', usersRouter)
@@ -54,6 +61,8 @@ app.use('/api/users', usersRouter)
 app.get('*', (req, res) => {
     res.sendFile(join(dist, 'index.html'))
 })
+
+
 
 // Startar servern
 app.listen(PORT, () => {
