@@ -103,33 +103,31 @@ router.get('/:userId', async (req, res) => {
 	}
  });
  
- //Post /messages 
- router.post('/', async (req, res) => {
+// POST /messages
+router.post('/', async (req, res) => {
 	try {
 	  const { userId, message } = req.body;
-	  
+ 
 	  await db.read();
-	  
+ 
 	  // Skapa det nya meddelandet
 	  const newMessage = {
 		 userId: userId,
 		 message: message
 	  };
-	  
+ 
 	  // Lägg till det nya meddelandet i databasen
 	  db.data.messages.push(newMessage);
-	  
-	  console.log("Nytt meddelande skapat:", newMessage);
-	  
+ 
+	  console.log('Nytt meddelande skapat:', newMessage);
+ 
 	  await db.write();
-	  
-	  res.status(201).send("Nytt meddelande har skapats");
+ 
+	  res.status(201).send('Nytt meddelande har skapats');
 	} catch (error) {
-	  console.log("Ett fel inträffade med att skapa meddelandet", error);
-	  res.status(500).send("Ett fel inträffade med att skapa meddelandet.");
+	  console.log('Ett fel inträffade med att skapa meddelandet', error);
+	  res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
 	}
  });
  
- 
-
-export default router 
+ export default router;

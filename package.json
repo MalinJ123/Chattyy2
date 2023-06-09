@@ -34,7 +34,9 @@
     "lowdb": "^6.0.1",
     "react": "^18.2.0",
     "react-router-dom": "^6.11.2",
-    "styled-components": "^5.3.11"
+    "readline-sync": "^1.4.10",
+    "styled-components": "^5.3.11",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
