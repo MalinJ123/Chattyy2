@@ -1,5 +1,5 @@
 {
-  "name": "ruby_dolphins",
+  "name": "chattyy2",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MalinJ123/Ruby_Dolphins.git"
+    "url": "https://github.com/MalinJ123/Chattyy2.git"
   },
   "keywords": [],
-  "author": "Ali, Malin, Mustafa, Victor",
+  "author": "Malin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MalinJ123/Ruby_Dolphins/issues"
+    "url": "https://github.com/MalinJ123/Chattyy2.git"
   },
-  "homepage": "https://github.com/MalinJ123/Ruby_Dolphins#readme",
+  "homepage": " ",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
