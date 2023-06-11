@@ -44,7 +44,8 @@ const DmMessages = ({ username }) => {
           ))}
         </section>
         <section>
-          <form onSubmit={handleMessageSubmit}>
+          <form>
+          {/* <form onSubmit={handleMessageSubmit}> */}
             <input
               type="text"
               name="message"
