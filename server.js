@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv'
 import { v4 as uuidv4 } from "uuid";
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
+// import { getDb } from "../data/database.js";
 
 
 
@@ -21,6 +22,12 @@ const PORT = process.env.PORT || 31140
 
 app.use(express.json())
 
+const db = getDb(); 
+const whereWeAre = dirname(fileURLToPath(import.meta.url))
+const dist = join(whereWeAre, './dist')
+app.use( express.static(dist) )
+// -> Start
+
 function getDb() {
 	// Create search path to the database
 	const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -33,7 +40,7 @@ function getDb() {
 
 
 // middleware and logger
-app.use(express.json())
+
 //logger and next function
 app.use((req, res, next) => {
 	console.log(`${req.method}  ${req.url} `, req.body)
@@ -54,12 +61,6 @@ app.options('*', (req, res) => {
 });
 
 
-
-// Routes //
-const whereWeAre = dirname(fileURLToPath(import.meta.url))
-const dist = join(whereWeAre, './dist')
-app.use( express.static(dist) )
-// -> Start
 
 
 // Messages

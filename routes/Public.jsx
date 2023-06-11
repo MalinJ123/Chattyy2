@@ -44,6 +44,7 @@ function Public() {
 		chatHistory.innerHTML = "";
 	};
 
+	//Jag har ingen login på den här sidan längre. 
 	const handleLogin = () => {
 		setIsLoggedIn(true);
 	};
