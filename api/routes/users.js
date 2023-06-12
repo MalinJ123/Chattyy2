@@ -1,15 +1,12 @@
 import express from "express";
+import jwt from 'jsonwebtoken';
 import { getDb } from "../data/database.js";
 import { isValidId, isValidUser } from "../data/validate.js";
 
+import SECRET from '../../server.js'
+
 const router = express.Router();
 const db = getDb();
-
-//	 X	 GET - User lista
-//	 X  GET - Users genom ID
-//	 X	 POST - Uppdatera User
-//	 X	DELETE - Radera ALLA User
-//		 DELETE - Radera Användare med Id
 
 // GET Users - hela listan
 router.get("/", async (req, res) => {
@@ -24,25 +21,56 @@ router.get("/", async (req, res) => {
     }
 });
 
-// Fejk POST - Är till för att användare ska kunna logga in i sidan
+
+// POST - login
 router.post("/login", async (req, res) => {
+
+    // Reading database
     await db.read()
-        const users = db.data.users;
-        const userName = req.body.name;
-        const userPassword = req.body.password;
+    const users = db.data.users
+
+    // Variables for requesting body data
+    let userName = req.body.name
+    let userPassword = req.body.password
+
+    if (!req.body || !userName || !userPassword) {
+        res.status(401).send({ message: 'Användarnamn och lösenord får inte lämnas tomt!'})
+        return
+    }
+
+    // Check if User (username) exists
+    let findUser = users.find(user => user.name === userName)
+
+    if (!findUser) {
+        console.log('Felaktigt användarnamn');
+        res.status(401).send({ message: 'Denna användaren existerar ej'})
         
-        const getUser = users.find((user) => user.name === userName && user.password === userPassword);
+        return
+    }
 
-        console.log(getUser);
+    if (findUser.password !== userPassword) {
+        console.log('Felaktigt lösenord');
+        res.status(401).send({message: 'Felaktigt användarnamn eller lösenord'})
 
-        if (!getUser) {
-            res.status(404).send("Användaruppgifter ofullständiga.");
-        } else {
-            res.send({status: "Inloggad"})
-        }
- 
-}
-)
+        return
+    }
+
+    // Successful login! Create a JWT token and send it back
+
+    const hour = 60 * 60
+    const payload = {userId: findUser.id}
+    const options = {expiresIn: 2 * hour}
+
+    let token = jwt.sign(payload, SECRET, options)
+
+    console.log('Signerad JWT: ', token);
+
+
+
+    let tokenPackage = {token: token, name: findUser.name, id: findUser.id, status: "Success"}
+    res.send(tokenPackage)
+})
+
 
 //GET Users - med ID
 router.get("/:id", async (req, res) => {
@@ -64,6 +92,8 @@ router.get("/:id", async (req, res) => {
         res.status(500).send("Ett fel uppstod vid hämtning av användare.");
     }
 });
+
+
 
 //Post User
 router.post("/", async (req, res) => {
@@ -94,14 +124,6 @@ router.post("/", async (req, res) => {
         console.log("test 3", newUser);
     }
 });
-
-// DELETE User
-router.delete("/all", async (req, res) => {
-    await db.read();
-    db.data.users = [];
-    await db.write();
-    res.sendStatus(200);
-})
 
 router.delete("/:id", async (req, res) => {
     await db.read();
@@ -146,9 +168,6 @@ router.put("/:id", async (req, res) => {
     await db.write();
     res.status(200).send(JSON.stringify(editedUser))
 });
-
-
-//userID för att hämta meddelandena? 
 
 
 

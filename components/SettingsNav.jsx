@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom"
 import {useContext} from "react"
-import { LoginContext } from "../src/ContextRoot";
+import { UserContext } from "../src/ContextRoot";
 
 const SettingsNavBar = () =>{
-    const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
+    const {isLoggedIn, setIsLoggedIn} = useContext(UserContext);
     return(
         <>
         {isLoggedIn &&

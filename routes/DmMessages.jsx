@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../src/contextRoot";
 
-const DmMessages = ({ username }) => {
+const DmMessages = () => {
 	const [messages, setMessages] = useState([]);
  const [newMessage, setNewMessage] = useState("");
+const {userId, setUserId}= useContext(UserContext);
 
 	useEffect(() => {
 		fetchMessages(); // Fetch meddelanden från API
@@ -33,7 +35,7 @@ const DmMessages = ({ username }) => {
 
 		})
     .then((response) => {
-      console.log(response); // Log the response data here
+      console.log(response); 
       return response.json();
     })
     .then((data) => {
@@ -47,7 +49,7 @@ const DmMessages = ({ username }) => {
 		<>
 			<div className="chat-area">
 				<section className="heading">
-					<p>Skriver med {username}</p>
+					<p>Skriver med {userId}</p>
 					<span className="chat-name"> </span>
 				</section>
 
