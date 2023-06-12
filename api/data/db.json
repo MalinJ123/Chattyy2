@@ -31,6 +31,18 @@
     {
       "userId": 4,
       "message": " detta är id 4 "
+    },
+    {
+      "userId": "",
+      "message": "heej pelle hur är läget "
+    },
+    {
+      "userId": "",
+      "message": "heej pelle hur är läget "
+    },
+    {
+      "userId": "",
+      "message": "Tjenare malin "
     }
   ]
 }

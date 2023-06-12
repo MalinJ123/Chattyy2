@@ -39,13 +39,11 @@ router.get('/:userId', async (req, res) => {
 	  const messages = db.data.messages.filter(
 		 (message) => message.userId === userId
 	  );
-
-	  console.log("Visar messages-lista", messages);
-	  
+ 
 	  if (messages.length === 0) {
 		 console.log("Inga meddelanden hittades för användar-ID", userId);
 	  }
-	  
+
 	  const messagesWithUser = messages.map((message) => {
       const user = db.data.users.find((user) => user.id === message.userId);
       return {

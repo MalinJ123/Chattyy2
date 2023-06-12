@@ -12,7 +12,7 @@ import { JSONFile } from 'lowdb/node';
 import publicRouter from "./api/routes/public.js";
 import usersRouter from "./api/routes/users.js";
 import searchQuery from "./api/routes/search.js";
-// import messagesRouter from "./api/routes/messages.js";
+import messagesRouter from "./api/routes/messages.js";
 
 // Express saker
 dotenv.config()
@@ -62,52 +62,8 @@ app.options('*', (req, res) => {
 
 
 
-// app.post("/api/messages", async (req, res) => {
-// 	try {
-// 	  const { userId, message } = req.body;
-// 	  const newMessage = {
-// 		 id: uuidv4(),
-// 		 userId,
-// 		 message,
-// 	  };
-
-// 	  db.data.messages.push(newMessage);
-// 	  await db.write();
- 
-// 	  console.log("Meddelandet har sparats i databasen.");
- 
-// 	  res.sendStatus(200);
-// 	} catch (error) {
-// 	  console.log("Ett fel inträffade vid sparande av meddelandet i databasen.", error);
-// 	  res.sendStatus(500);
-// 	}
-//  });
-
-
-// app.get("/api/messages", async (req, res) => {
-// 	try {
-// 		await db.read();
-// 		const messages = db.data.messages; // Hämta alla meddelanden från databasen
-
-// 		console.log("Db. data", db.data)
-
-// 		console.log("Hämtade meddelanden från databasen:", messages);
-
-// 		res.send(messages);
-// 	} catch (error) {
-// 		console.log("Ett fel inträffade vid hämtning av meddelandena från databasen.", error);
-// 		res.sendStatus(500);
-// 	}
-// });
-
-
-
-
-
-
-
 // -> messages
-app.use('/api/messages', usersRouter);
+app.use('/api/messages', messagesRouter);
 // -> public
 app.use('/api/public', publicRouter)
 // -> Search products

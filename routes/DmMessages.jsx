@@ -36,7 +36,8 @@ const DmMessages = ({ username }) => {
 			.then((data) => {
 		      // Lägg till det nya meddelandet i listan
           setMessages((prevMessages) => [...prevMessages, data]);
-          messageInput.value = ""; // Rensa inputfältet
+
+          messageInput.value = ""; 
         })
         .catch((error) => console.log(error));
     };
@@ -52,7 +53,7 @@ const DmMessages = ({ username }) => {
 			  <section className="history">
           {messages.map((message) => (
               <section key={message.id}>
-                <p>{message.text}</p>
+                <p>{message.message}</p>
                 {/* <p>{message.timestamp}</p> */}
               </section>
             ))}
