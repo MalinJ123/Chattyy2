@@ -13,7 +13,14 @@ html, body {
   padding: 0px;
 }
 
-a.active {
-  background-color: #232323;
-  color: #f1f1f1;
+a.active{
+  a.active {
+    background-color: #232323;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    color: #f1f1f1;
+    border-radius: 20px;
+  }
+  
 }
+
+

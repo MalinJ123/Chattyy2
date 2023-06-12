@@ -9,82 +9,106 @@ import { UserContext } from "../src/contextRoot.jsx";
 export const loader = () => getUsers();
 
 const Users = () => {
-    const userData = useLoaderData();
-    const { user, setUserId } = useContext(UserContext)
+	const userData = useLoaderData();
+	const { user, setUserId } = useContext(UserContext);
 
-    const [editingUser, setEditingUser] = useState({});
-    const [userName, setUserName] = useState("");
-    const [userPassword, setUserPassword] = useState("");
+	const [editingUser, setEditingUser] = useState({});
+	const [userName, setUserName] = useState("");
+	const [userPassword, setUserPassword] = useState("");
 
-    const handleDelete = async (userId) => {
-        console.log(userId);
-        try {
-            const result = await deletUser(userId);
-            console.log(result);
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
+	const handleDelete = async (userId) => {
+		console.log(userId);
+		try {
+			const result = await deletUser(userId);
+			console.log(result);
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
 
-    const onEditUser = (user) => {
-        setEditingUser(user)
-    }
+	const onEditUser = (user) => {
+		setEditingUser(user);
+	};
 
-    const handleUserNameChange = (e) => {
-        setUserName(e.target.value);
-    }
+	const handleUserNameChange = (e) => {
+		setUserName(e.target.value);
+	};
 
-    const handleUserPasswordChange = (e) => {
-        setUserPassword(e.target.value);
-    }
+	const handleUserPasswordChange = (e) => {
+		setUserPassword(e.target.value);
+	};
 
-    const onSubmit = async (e) => {
-        e.preventDefault()
+	const onSubmit = async (e) => {
+		e.preventDefault();
 
-        let editUser = {
-            id: editingUser.id,
-            name: userName,
-            password: userPassword,
-        }
+		let editUser = {
+			id: editingUser.id,
+			name: userName,
+			password: userPassword,
+		};
 
-        const result = await updateUser(editUser)
-        console.log(result);
-        setEditingUser({})
-    }
+		const result = await updateUser(editUser);
+		console.log(result);
+		setEditingUser({});
+	};
 
-
-
-    return(
-            <div className="users-div">
-
-            {userData.map((user) => (
-                <div key={user.id} className="user-div">
-                    {
-                        editingUser.id === user.id ? (
-                            <form onSubmit={onSubmit}>
-                                <p>Ändrar på {user.name}</p>
-                                <input type="text" placeholder={user.name} value={userName} onChange={handleUserNameChange} />
-                                <input type="text" placeholder={user.password} value={userPassword} onChange={handleUserPasswordChange} />
-                                <button className="user-btn" type="submit">Spara</button>
-                                <button className="user-btn" onClick={() => setEditingUser({})}>Avbryt</button>
-                            </form>
-                        ) 
-                        : 
-                        <>
-                            <li className="user-li"> Id: {user.id} <br /> Användarnamn: {user.name}</li>
-                            <div className="user-button">
-                                <button onClick={() => onEditUser(user)} className="user-btn"> Uppdatera</button>
-                                <button onClick={() => handleDelete(user.id)} className="user-btn"> Ta bort</button>
-                            </div>
-                        </>
-                    }
-                     {user.id === user.id && <DmMessages userId={user.id} />} 
-                </div>
-                )
-                )
-            }
-            </div>
-    )
-}
+	return (
+		<div className="users-div">
+			{userData.map((user) => (
+				<div key={user.id} className="user-div">
+					{editingUser.id === user.id ? (
+						<form onSubmit={onSubmit}>
+							<p>Ändrar på {user.name}</p>
+							<input
+								type="text"
+								placeholder={user.name}
+								value={userName}
+								onChange={handleUserNameChange}
+							/>
+							<input
+								type="text"
+								placeholder={user.password}
+								value={userPassword}
+								onChange={handleUserPasswordChange}
+							/>
+							<button className="user-btn" type="submit">
+								Spara
+							</button>
+							<button
+								className="user-btn"
+								onClick={() => setEditingUser({})}
+							>
+								Avbryt
+							</button>
+						</form>
+					) : (
+						<>
+							<li className="user-li">
+								{" "}
+								Id: {user.id} <br /> Användarnamn: {user.name}
+							</li>
+							<div className="user-button">
+								<button
+									onClick={() => onEditUser(user)}
+									className="user-btn"
+								>
+									{" "}
+									Uppdatera
+								</button>
+								<button
+									onClick={() => handleDelete(user.id)}
+									className="user-btn"
+								>
+									{" "}
+									Ta bort
+								</button>
+							</div>
+						</>
+					)}
+				</div>
+			))}
+		</div>
+	);
+};
 
 export default Users;
