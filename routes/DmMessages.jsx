@@ -29,7 +29,7 @@ const DmMessages = ({ username }) => {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ userId: "", message: newMessage }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin 
+			body: JSON.stringify({ userId: userId, message: newMessage }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin 
 
 		})
     .then((response) => {
