@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 		await db.read();
 		const messages = db.data.messages;
 		
-		console.log("Visar messages-lista", messages);
+		// console.log("Visar messages-lista", messages);
 		res.send(messages);
   } catch (error) {
 		console.log("Detta är vad vi får tillbaka ifrån meddelande listan", error);

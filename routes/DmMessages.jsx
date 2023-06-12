@@ -43,16 +43,6 @@ const DmMessages = ({ username }) => {
     .catch((error) => console.log(error));
 };
 
-		// 	.then((response) => response.json())
-		// 	.then((data) => {
-		//       // Lägg till det nya meddelandet i listan
-    //       setMessages((prevMessages) => [...prevMessages, data]);
-
-    //       messageInput.value = ""; 
-    //     })
-    //     .catch((error) => console.log(error));
-    // };
-
 	return (
 		<>
 			<div className="chat-area">
