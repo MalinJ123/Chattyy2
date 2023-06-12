@@ -1,6 +1,6 @@
 import express from "express";
 import { getDb } from "../data/database.js";
-import { v4 as uuidv4 } from "uuid";
+
 
 const router = express.Router();
 const db = getDb()
@@ -16,7 +16,7 @@ const db = getDb()
 
 
 
-//GET /messages -> all messages 
+//GET /api/messages -> all messages 
 router.get('/', async (req, res) => {
 	try {
 		await db.read();
@@ -30,29 +30,30 @@ router.get('/', async (req, res) => {
   }
 });
 
-//GET /messages -> message by id
-
+// GET /api/messages/:userId 
 router.get('/:userId', async (req, res) => {
 	try {
 	  const userId = parseInt(req.params.userId);
 	  
 	  await db.read();
-	  const messages = db.data.messages.filter(message => message.userId === userId);
-	  
+	  const messages = db.data.messages.filter(
+		 (message) => message.userId === userId
+	  );
+
 	  console.log("Visar messages-lista", messages);
 	  
 	  if (messages.length === 0) {
 		 console.log("Inga meddelanden hittades för användar-ID", userId);
 	  }
 	  
-	  const messagesWithUser = messages.map(message => {
-		 const user = db.data.users.find(user => user.id === message.userId);
-		 return {
-			userId: message.userId,
-			userName: user ? user.name : "Okänd användare",
-			message: message.message
-		 };
-	  });
+	  const messagesWithUser = messages.map((message) => {
+      const user = db.data.users.find((user) => user.id === message.userId);
+      return {
+        userId: message.userId,
+        userName: user ? user.name : "Okänd användare",
+        message: message.message,
+      };
+    });
 	  
 	  console.log("Meddelanden med användare:", messagesWithUser);
 	  

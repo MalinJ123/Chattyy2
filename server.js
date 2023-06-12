@@ -5,7 +5,6 @@ import * as dotenv from 'dotenv'
 import { v4 as uuidv4 } from "uuid";
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
-// import { getDb } from "../data/database.js";
 
 
 
@@ -31,7 +30,8 @@ app.use( express.static(dist) )
 function getDb() {
 	// Create search path to the database
 	const __dirname = dirname(fileURLToPath(import.meta.url))
-	const file = join(__dirname, 'db.json')
+	
+	const file = join(__dirname,'api/data/', 'db.json')
 	const adapter = new JSONFile(file)
 	const db = new Low(adapter, {})
 	// {} is default data
@@ -62,43 +62,52 @@ app.options('*', (req, res) => {
 
 
 
+// app.post("/api/messages", async (req, res) => {
+// 	try {
+// 	  const { userId, message } = req.body;
+// 	  const newMessage = {
+// 		 id: uuidv4(),
+// 		 userId,
+// 		 message,
+// 	  };
 
-// Messages
-app.post("/messages", async (req, res) => {
-	try {
-	  const { userId, message } = req.body;
-	  const newMessage = {
-		 id: uuidv4(),
-		 userId,
-		 message,
-	  };
-
-	  db.data.messages.push(newMessage);
-	  await db.write();
+// 	  db.data.messages.push(newMessage);
+// 	  await db.write();
  
-	  console.log("Meddelandet har sparats i databasen.");
+// 	  console.log("Meddelandet har sparats i databasen.");
  
-	  res.sendStatus(200);
-	} catch (error) {
-	  console.log("Ett fel inträffade vid sparande av meddelandet i databasen.", error);
-	  res.sendStatus(500);
-	}
- });
-
-app.get("/messages", async (req, res) => {
-	try {
-		const messages = db.data.messages; // Hämta alla meddelanden från databasen
-
-		console.log("Hämtade meddelanden från databasen:", messages);
-
-		res.send(messages);
-	} catch (error) {
-		console.log("Ett fel inträffade vid hämtning av meddelandena från databasen.", error);
-		res.sendStatus(500);
-	}
-});
+// 	  res.sendStatus(200);
+// 	} catch (error) {
+// 	  console.log("Ett fel inträffade vid sparande av meddelandet i databasen.", error);
+// 	  res.sendStatus(500);
+// 	}
+//  });
 
 
+// app.get("/api/messages", async (req, res) => {
+// 	try {
+// 		await db.read();
+// 		const messages = db.data.messages; // Hämta alla meddelanden från databasen
+
+// 		console.log("Db. data", db.data)
+
+// 		console.log("Hämtade meddelanden från databasen:", messages);
+
+// 		res.send(messages);
+// 	} catch (error) {
+// 		console.log("Ett fel inträffade vid hämtning av meddelandena från databasen.", error);
+// 		res.sendStatus(500);
+// 	}
+// });
+
+
+
+
+
+
+
+// -> messages
+app.use('/api/messages', usersRouter);
 // -> public
 app.use('/api/public', publicRouter)
 // -> Search products

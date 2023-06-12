@@ -1,62 +1,78 @@
 import React, { useState, useEffect } from "react";
-import { getDb } from "../api/data/db.json";
 
 const DmMessages = ({ username }) => {
-  const [messages, setMessages] = useState([]);
-  const db = getDb();
+	const [messages, setMessages] = useState([]);
+ const [newMessage, setNewMessage] = useState("");
 
-  useEffect(() => {
-    // Läs in meddelandena från databasen när komponenten mountas
-    const messages = db.get("messages").value();
-    setMessages(messages);
-  }, []);
+	useEffect(() => {
+		fetchMessages(); // Fetch meddelanden från API
+	}, []);
 
-  const handleMessageSubmit = (e) => {
-    e.preventDefault();
-    const messageInput = e.target.elements.message;
-    const newMessage = messageInput.value;
-
-    // Sparar meddelandet i databasen
-    db.get("messages")
-      .push({ userId: '' , message: newMessage })
-      .write();
-
-    setMessages([...messages, newMessage]);
-
-    // Rensa inputfältet
-    messageInput.value = "";
+	 const fetchMessages = async () => {
+    try {
+      const response = await fetch("http://localhost:5173/api/messages");
+      const data = await response.json();
+      setMessages(data); 
+    } catch (error) {
+      console.log("Error fetching messages:", error);
+    }
   };
 
-  return (
-    <>
-      <div className="chat-area">
-        <section className="heading">
-          <p>Skriver med {username}</p>
-          <span className="chat-name"> </span>
-        </section>
+	const handleMessageSubmit = (e) => {
+		e.preventDefault();
+		const messageInput = e.target.elements.message;
+		const newMessage = messageInput.value;
 
-        <section className="history">
-          {messages.map((message, index) => (
-            <section key={index}>
-              <p>{message}</p>
-              <p>17:47</p>
-            </section>
-          ))}
-        </section>
-        <section>
-          <form>
-          {/* <form onSubmit={handleMessageSubmit}> */}
+		// Spara meddelandet i databasen
+		fetch("/api/messages", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ userId: "", message: newMessage }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin 
+
+		})
+			.then((response) => response.json())
+			.then((data) => {
+		      // Lägg till det nya meddelandet i listan
+          setMessages((prevMessages) => [...prevMessages, data]);
+          messageInput.value = ""; // Rensa inputfältet
+        })
+        .catch((error) => console.log(error));
+    };
+
+	return (
+		<>
+			<div className="chat-area">
+				<section className="heading">
+					<p>Skriver med {username}</p>
+					<span className="chat-name"> </span>
+				</section>
+
+			  <section className="history">
+          {messages.map((message) => (
+              <section key={message.id}>
+                <p>{message.text}</p>
+                {/* <p>{message.timestamp}</p> */}
+              </section>
+            ))}
+      
+
+        
+        <form onSubmit={handleMessageSubmit}>
             <input
               type="text"
               name="message"
               placeholder="Ditt meddelande..."
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
             />
             <button type="submit">Skicka</button>
           </form>
-        </section>
-      </div>
-    </>
-  );
+				</section>
+			</div>
+		</>
+	);
 };
 
 export default DmMessages;
