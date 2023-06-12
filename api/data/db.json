@@ -30,18 +30,12 @@
       "message": " detta är id 4 "
     },
     {
-      "message": "Heeej viktorr "
-    },
-    {
-      "message": "heej pelle "
-    },
-    {
-      "userId": "",
-      "message": "heej pelle "
+      "userId": 1,
+      "message": "heej pelle hur är läget "
     },
     {
       "userId": 1,
-      "message": "heeey viiiictoor"
+      "message": "heej pelle hur är läget "
     }
   ]
 }
