@@ -36,6 +36,26 @@
     {
       "userId": 1,
       "message": "heej pelle hur är läget "
+    },
+    {
+      "userId": 1,
+      "message": "heej pelle "
+    },
+    {
+      "userId": 1,
+      "message": "updateProduckt jsx + css i contents"
+    },
+    {
+      "userId": 1,
+      "message": "clearprodukt js och css i data "
+    },
+    {
+      "userId": 1,
+      "message": "addProducts jsx + css"
+    },
+    {
+      "userId": 1,
+      "message": "inga produkter kvar "
     }
   ]
 }
