@@ -56,6 +56,14 @@
     {
       "userId": 1,
       "message": "inga produkter kvar "
+    },
+    {
+      "userId": 1,
+      "message": "gjort merge med dev, msg"
+    },
+    {
+      "userId": 1,
+      "message": "ddddddd"
     }
   ]
 }
