@@ -2,7 +2,6 @@ import express from "express";
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import * as dotenv from 'dotenv'
-import { v4 as uuidv4 } from "uuid";
 import { Low } from 'lowdb';
 import { JSONFile } from 'lowdb/node';
 

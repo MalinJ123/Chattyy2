@@ -32,15 +32,26 @@ const DmMessages = ({ username }) => {
 			body: JSON.stringify({ userId: "", message: newMessage }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin 
 
 		})
-			.then((response) => response.json())
-			.then((data) => {
-		      // Lägg till det nya meddelandet i listan
-          setMessages((prevMessages) => [...prevMessages, data]);
+    .then((response) => {
+      console.log(response); // Log the response data here
+      return response.json();
+    })
+    .then((data) => {
+      setMessages((prevMessages) => [...prevMessages, data]);
+      messageInput.value = ""; 
+    })
+    .catch((error) => console.log(error));
+};
 
-          messageInput.value = ""; 
-        })
-        .catch((error) => console.log(error));
-    };
+		// 	.then((response) => response.json())
+		// 	.then((data) => {
+		//       // Lägg till det nya meddelandet i listan
+    //       setMessages((prevMessages) => [...prevMessages, data]);
+
+    //       messageInput.value = ""; 
+    //     })
+    //     .catch((error) => console.log(error));
+    // };
 
 	return (
 		<>

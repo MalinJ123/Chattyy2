@@ -14,9 +14,6 @@
       "id": 2162,
       "name": "Moa",
       "password": "Victor"
-    },
-    {
-      "id": 612
     }
   ],
   "messages": [
@@ -35,14 +32,6 @@
     {
       "userId": "",
       "message": "heej pelle hur är läget "
-    },
-    {
-      "userId": "",
-      "message": "heej pelle hur är läget "
-    },
-    {
-      "userId": "",
-      "message": "Tjenare malin "
     }
   ]
 }
