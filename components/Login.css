@@ -1,98 +1,103 @@
-.main-form{
-    margin-top: 2em;
-    position: absolute;
-    top: 5em;
-    z-index: 1;
-    background-color: rgba(14, 12, 12, 0.833);
-    padding: 2em;
-    border-radius: 10%;
-    right: 35%;
+.main-form {
+	margin-top: 2em;
+	position: absolute;
+	top: 5em;
+	z-index: 1;
+	background-color: rgba(14, 12, 12, 0.833);
+	padding: 2em;
+	border-radius: 10%;
+	right: 35%;
 }
 
-.form-div{
-    display: flex;
-    flex-direction: column;
-    padding: 5em;
-    border-radius: 10px;
-    gap: 1em;
-    color: white;
+.form-div {
+	display: flex;
+	flex-direction: column;
+	padding: 5em;
+	border-radius: 10px;
+	gap: 1em;
+	color: white;
 }
-.title{
-margin-bottom: 1em;
-}
-
-.form-header{
-    display: flex;
-    justify-content: center;
-
-}
-.input-div{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    font-size: smaller;
+.title {
+	margin-bottom: 1em;
 }
 
-input{
-    align-self: center;
-    /* width: 200px;
+.form-header {
+	display: flex;
+	justify-content: center;
+}
+.input-div {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-size: smaller;
+}
+
+input {
+	align-self: center;
+	/* width: 200px;
      */
-
 }
 
-label{
-    align-self: right;
-    margin-bottom: 0.2em;
-    font-weight: lighter;
+label {
+	align-self: right;
+	margin-bottom: 0.2em;
+	font-weight: lighter;
 }
-.login-div{
-    display: flex;
-    justify-content: center;
+.login-div {
+	display: flex;
+	justify-content: center;
 }
-.login-btn{
-    background-color: rgb(27, 26, 26);
-    color: white;
-    border: none;
-    font-size: 20px;
-    padding: .4em 1em;
-    border-radius: 4px;
-    cursor: pointer;
-    align-self: center;
+.login-btn {
+	background-image: linear-gradient(
+		to right,
+		#b2fefa 0%,
+		#0ed2f7 51%,
+		#b2fefa 100%
+	);
+	margin: 10px;
+	padding: 7px 10px;
+	text-align: center;
+	font-size: 15px;
+	transition: 0.5s;
+	background-size: 200% auto;
+	color: rgb(0, 0, 0);
+	/* box-shadow: 0 0 20px #eee; */
+	border-radius: 10px;
+	display: block;
 }
-.login-btn:hover{
-    background-color: white;
-    color: rgb(27, 26, 26);
+.login-btn:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #090808;
+	text-decoration: none;
 }
 
-@media screen and (max-width: 790px){
-    .main-form{
-        margin-top: 2em;
-        position: absolute;
-        top: 5em;
-        z-index: 1;
-        background-color: rgba(14, 12, 12, 0.833);
-        padding: 2em;
-        border-radius: 10%;
-        right: 25%;
-    }
-  
+@media screen and (max-width: 790px) {
+	.main-form {
+		margin-top: 2em;
+		position: absolute;
+		top: 5em;
+		z-index: 1;
+		background-color: rgba(14, 12, 12, 0.833);
+		padding: 2em;
+		border-radius: 10%;
+		right: 25%;
+	}
 }
-@media screen and (max-width: 549px){
-    .main-form{
-        margin-top: 2em;
-        position: absolute;
-        top: 6em;
-        z-index: 1;
-        border-radius: 10%;
-        right: 8%;
-    }
-    .form-div{
-        display: flex;
-        flex-direction: column;
-        padding: 1em;
-        border-radius: 10px;
-        gap: 2em;
-        color: white;
-    }
-  
+@media screen and (max-width: 549px) {
+	.main-form {
+		margin-top: 2em;
+		position: absolute;
+		top: 6em;
+		z-index: 1;
+		border-radius: 10%;
+		right: 8%;
+	}
+	.form-div {
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		border-radius: 10px;
+		gap: 2em;
+		color: white;
+	}
 }
