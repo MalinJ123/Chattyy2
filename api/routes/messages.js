@@ -16,13 +16,13 @@ const db = getDb()
 
 
 
-//GET /messages -> all messages 
+//GET /api/messages -> all messages 
 router.get('/', async (req, res) => {
 	try {
 		await db.read();
 		const messages = db.data.messages;
 		
-		console.log("Visar messages-lista", messages);
+		// console.log("Visar messages-lista", messages);
 		res.send(messages);
   } catch (error) {
 		console.log("Detta är vad vi får tillbaka ifrån meddelande listan", error);
@@ -30,29 +30,28 @@ router.get('/', async (req, res) => {
   }
 });
 
-//GET /messages -> message by id
-
+// GET /api/messages/:userId 
 router.get('/:userId', async (req, res) => {
 	try {
 	  const userId = parseInt(req.params.userId);
 	  
 	  await db.read();
-	  const messages = db.data.messages.filter(message => message.userId === userId);
-	  
-	  console.log("Visar messages-lista", messages);
-	  
+	  const messages = db.data.messages.filter(
+		 (message) => message.userId === userId
+	  );
+ 
 	  if (messages.length === 0) {
 		 console.log("Inga meddelanden hittades för användar-ID", userId);
 	  }
-	  
-	  const messagesWithUser = messages.map(message => {
-		 const user = db.data.users.find(user => user.id === message.userId);
-		 return {
-			userId: message.userId,
-			userName: user ? user.name : "Okänd användare",
-			message: message.message
-		 };
-	  });
+
+	  const messagesWithUser = messages.map((message) => {
+      const user = db.data.users.find((user) => user.id === message.userId);
+      return {
+        userId: message.userId,
+        userName: user ? user.name : "Okänd användare",
+        message: message.message,
+      };
+    });
 	  
 	  console.log("Meddelanden med användare:", messagesWithUser);
 	  
@@ -103,33 +102,31 @@ router.get('/:userId', async (req, res) => {
 	}
  });
  
- //Post /messages 
- router.post('/', async (req, res) => {
+// POST /messages
+router.post('/', async (req, res) => {
 	try {
 	  const { userId, message } = req.body;
-	  
+ 
 	  await db.read();
-	  
+ 
 	  // Skapa det nya meddelandet
 	  const newMessage = {
 		 userId: userId,
 		 message: message
 	  };
-	  
+ 
 	  // Lägg till det nya meddelandet i databasen
 	  db.data.messages.push(newMessage);
-	  
-	  console.log("Nytt meddelande skapat:", newMessage);
-	  
+ 
+	  console.log('Nytt meddelande skapat:', newMessage);
+ 
 	  await db.write();
-	  
-	  res.status(201).send("Nytt meddelande har skapats");
+ 
+	  res.status(201).send('Nytt meddelande har skapats');
 	} catch (error) {
-	  console.log("Ett fel inträffade med att skapa meddelandet", error);
-	  res.status(500).send("Ett fel inträffade med att skapa meddelandet.");
+	  console.log('Ett fel inträffade med att skapa meddelandet', error);
+	  res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
 	}
  });
  
- 
-
-export default router 
+ export default router;

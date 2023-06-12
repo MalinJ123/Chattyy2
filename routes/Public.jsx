@@ -3,7 +3,7 @@
 
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
-import { LoginContext } from "../src/ContextRoot";
+import { UserContext } from "../src/ContextRoot";
 
 import { Link } from "react-router-dom";
 import DmMessages from "../routes/DmMessages";
@@ -14,7 +14,7 @@ import DmMessages from "../routes/DmMessages";
 
 function Public() {
 	const [selectedChannel, setSelectedChannel] = useState(" ");
-	const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
+	const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 
 	const handleSendMessage = () => {
 		const message = document.querySelector('input[type="text"]').value;
@@ -44,6 +44,7 @@ function Public() {
 		chatHistory.innerHTML = "";
 	};
 
+	//Jag har ingen login på den här sidan längre. 
 	const handleLogin = () => {
 		setIsLoggedIn(true);
 	};

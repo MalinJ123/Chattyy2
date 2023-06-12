@@ -4,12 +4,13 @@ import "../stylesheet/users.css";
 import { deletUser } from "../data/deleteUser";
 import { Link } from "react-router-dom";
 import { updateUser } from "../data/updateUser";
-import { useState } from "react";
-
+import { useState, useContext } from "react";
+import { UserContext } from "../src/contextRoot.jsx";
 export const loader = () => getUsers();
 
 const Users = () => {
     const userData = useLoaderData();
+    const { user, setUserId } = useContext(UserContext)
 
     const [editingUser, setEditingUser] = useState({});
     const [userName, setUserName] = useState("");
@@ -77,6 +78,7 @@ const Users = () => {
                             </div>
                         </>
                     }
+                     {user.id === user.id && <DmMessages userId={user.id} />} 
                 </div>
                 )
                 )

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import {NavActionBox, NavBody, LoginNavLinkBtn, NavLinkBtn, NavLogo, NavLogoBox, NavMobileBox, NavPlaceholder, NavSideBox, ImposterNavLinkBtn, LoginNavBtn} from "../styles/HeaderStyle";
 import LoginForm from "./Login";
 import "./Header.css"
-import { LoginContext } from "../src/ContextRoot";
+import { UserContext } from "../src/ContextRoot";
 import SettingsNavBar from "./SettingsNav";
 
 function NavLinks() {
@@ -18,9 +18,9 @@ function Header() {
 	const [showMobileNav, setShowMobileNav] = useState(false);
 	const [showAdminSettings, setShowAdminSettings] = useState(false);
 
-    const {showLoginForm, setShowLoginForm} = useContext(LoginContext);
+    const {showLoginForm, setShowLoginForm} = useContext(UserContext);
 
-	const {isLoggedIn} = useContext(LoginContext);
+	const {isLoggedIn} = useContext(UserContext);
 
 	return (
         <div className="header-div">

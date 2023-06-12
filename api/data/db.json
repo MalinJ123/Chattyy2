@@ -30,12 +30,32 @@
       "message": " detta är id 4 "
     },
     {
-      "userId": 99,
-      "message": " detta är id 99 "
+      "userId": 1,
+      "message": "heej pelle hur är läget "
     },
     {
-      "userId": 299,
-      "message": " EEEEEEEMMMMMMa "
+      "userId": 1,
+      "message": "heej pelle hur är läget "
+    },
+    {
+      "userId": 1,
+      "message": "heej pelle "
+    },
+    {
+      "userId": 1,
+      "message": "updateProduckt jsx + css i contents"
+    },
+    {
+      "userId": 1,
+      "message": "clearprodukt js och css i data "
+    },
+    {
+      "userId": 1,
+      "message": "addProducts jsx + css"
+    },
+    {
+      "userId": 1,
+      "message": "inga produkter kvar "
     }
   ]
 }

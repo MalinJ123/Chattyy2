@@ -1,18 +1,21 @@
 import {useState, createContext} from "react"
 
-export const LoginContext = createContext()
+
+export const UserContext = createContext()
 
 const ContextRoot = ({children}) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const [showLoginForm, setShowLoginForm] = useState(false);
+    const [userId, setUserId] = useState ("")
 
+    const sessionStorageKey = 'jwt-session'
     
     
     return (
-        <LoginContext.Provider value={{isLoggedIn, showLoginForm, setShowLoginForm, setIsLoggedIn}}>
+        <UserContext.Provider value={{sessionStorageKey, isLoggedIn, showLoginForm, userId, setUserId, setShowLoginForm, setIsLoggedIn}}>
             {children}
-        </LoginContext.Provider>
+        </UserContext.Provider>
     )
 }
 

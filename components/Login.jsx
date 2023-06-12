@@ -1,8 +1,9 @@
 import "./Login.css";
 
-import { LoginContext } from "../src/ContextRoot";
+import { UserContext } from "../src/ContextRoot";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+
 
 import loginUser from "../data/loginUser";
 
@@ -13,8 +14,8 @@ const LoginForm = () => {
 
     // const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
     // const {setShowLoginForm} = useContext(LoginContext);
-     const { isLoggedIn, setIsLoggedIn, setShowLoginForm } = useContext(
-    LoginContext
+     const { sessionStorageKey, isLoggedIn, setIsLoggedIn, setShowLoginForm, setUserId } = useContext(
+    UserContext
   );
 
     const handleSubmit =  (e) => {
@@ -24,21 +25,24 @@ const LoginForm = () => {
     
     const handleClick = async () => {
 
-        console.log("Inloggad? ", isLoggedIn);
+        if (userName !== "" && userPassword !== "") {
+            const loginStatus = await loginUser({name: userName, password: userPassword}) 
 
-        const loginStatus = await loginUser({name: userName, password: userPassword})
-
-        console.log(loginStatus);
-        
-        if (loginStatus.loggedIn === "Inloggad") {
-            setIsLoggedIn(true)
-            setShowLoginForm(false)
-        } else {
-            console.log("Felaktiga inloggningsuppgifter");
-        }
-    }
+            console.log(loginStatus.loggedIn);
     
-
+            if (loginStatus.loggedIn == "Success" ) {
+    
+                let jwt = loginStatus.token
+                sessionStorage.setItem(sessionStorageKey, 'Bearer: ' + jwt)
+    
+                setIsLoggedIn(true)
+                setUserId(loginStatus.id)
+                setShowLoginForm(false)
+                }
+            } else {
+                console.log('Gick inte att logga in!');
+            }
+        }
 
     const handleUserNameChange = (e) => {
         setUserName(e.target.value)
