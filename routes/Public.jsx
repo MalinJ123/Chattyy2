@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import DmMessages from "../routes/DmMessages";
 //backend cant be used in react app.jsx
 // import {getDb} from '../backend/data/database.js'
-
 // const sessionStorageKey = "jsonWebTokenKEY";
 
 function Public() {
@@ -44,7 +43,7 @@ function Public() {
 		chatHistory.innerHTML = "";
 	};
 
-	//Jag har ingen login på den här sidan längre. 
+	//Jag har ingen login på den här sidan längre.
 	const handleLogin = () => {
 		setIsLoggedIn(true);
 	};
@@ -66,40 +65,21 @@ function Public() {
 							<ul>
 								<li>[Inloggad]</li>
 								<li>[Tillgängliga kanaler]</li>
+
 								<li>
-									<a href="#">#koda</a>
-								</li>
-								<li>
-									<a href="#">#random</a>{" "}
-									<span className="unread logedin">3</span>{" "}
+									<a href="#">#Öppen chatt </a>{" "}
+									{/* <span className="unread logedin">3</span> */}
 								</li>
 								<li className="logedin">
 									<a href="#">#grupp1 🔑</a>
 								</li>
-								<li className="logedin">
-									<a href="#">#grupp2 🔑</a>
-								</li>
-								<li className="logedin">
-									<a href="#">#grupp3 🔑</a>
-								</li>
+
 								<li>
 									<hr />
 								</li>
 								<li title="Direktmeddelanden">[DM]</li>
 								<li>
 									<Link to="/messages">PratgladPelle</Link>
-								</li>
-								<li>
-									<a href="#">SocialaSara</a>
-								</li>
-								<li>
-									<a href="#">TrevligaTommy</a>
-								</li>
-								<li>
-									<a href="#">VänligaVera</a>
-								</li>
-								<li>
-									<a href="#">GladaGustav</a>
 								</li>
 							</ul>
 						</nav>
@@ -138,48 +118,11 @@ function Public() {
 									}
 									onClick={() => handleChannelClick("#koda")}
 								>
-									<a href="#"> #Koda 🔑 </a>
-								</li>
-
-								<li
-									className={
-										selectedChannel === "#unread"
-											? "selected"
-											: ""
-									}
-									onClick={() =>
-										handleChannelClick("#random")
-									}
-								>
-									<a href="#"> #random </a>
+									<a href="#"> #Öppen chatt 🔑 </a>
 								</li>
 
 								<li className="locked">
 									<a href="#"> #grupp1 🔒 </a>
-								</li>
-								<li
-									className={
-										selectedChannel === "#grupp2"
-											? "selected"
-											: ""
-									}
-								>
-									<a
-										href="#"
-										onClick={() =>
-											setSelectedChannel("#grupp2")
-										}
-									>
-										{" "}
-										#grupp2 🔑{" "}
-									</a>
-								</li>
-
-								<li className="locked">
-									<a href="#"> #grupp3 🔒 </a>
-								</li>
-								<li>
-									<hr />
 								</li>
 							</ul>
 						</nav>
