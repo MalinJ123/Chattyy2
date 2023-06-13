@@ -41,6 +41,8 @@ function OpenChat() {
       .catch((error) => console.log(error));
   };
 
+ 
+
   return (
     <>
       <div className="chat-area">
@@ -54,6 +56,7 @@ function OpenChat() {
             <section key={message.id}>
               <p>{message.message}</p>
               <p>{message.timestamp}</p>
+
             </section>
           ))}
         </section>

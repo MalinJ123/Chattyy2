@@ -70,11 +70,25 @@ function Public() {
 								<li>[Inloggad]</li>
 								<li>[Tillgängliga kanaler]</li>
 
-								<li>
-									<a href="#">#Öppen chatt </a>{" "}
+								<li
+									className={
+										selectedChannel === "#koda"
+											? "selected"
+											: ""
+									}
+									onClick={() =>
+										handleChannelClick("#Öppen chatt")
+									}
+								>
+									<a href="#">
+										{" "}
+										<Link to="/openchat">
+											#Öppen chatt 
+										</Link>{" "}
+									</a>
 								</li>
 								<li className="logedin">
-									<Link to="/unlocked">#grupp1</Link>
+									<Link to="/unlocked">#grupp1🔑</Link>
 								</li>
 								<li>
 									<hr />
@@ -87,8 +101,8 @@ function Public() {
 						</nav>
 						<div className="chat-area">
 							<section className="heading">
-								Chattar i
-								<span className="chat-name">#grupp2</span>
+								ENKEL CHAT APP
+								<span className="chat-name"> #Byttefly</span>
 							</section>
 							<section className="history">
 								<section className="align-right">
