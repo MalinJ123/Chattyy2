@@ -24,6 +24,8 @@ const DmMessages = () => {
 		e.preventDefault();
 		const messageInput = e.target.elements.message;
 		const newMessage = messageInput.value;
+		const currentTime = getCurrentTime(); // Get the current timestamp
+
 
 		// Spara meddelandet i databasen
 		fetch("/api/messages", {
@@ -31,7 +33,7 @@ const DmMessages = () => {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ userId: userId, message: newMessage }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin
+			body: JSON.stringify({ userId: userId, message: newMessage, timestamp: currentTime  }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin
 		})
 			.then((response) => {
 				console.log(response);
@@ -39,7 +41,8 @@ const DmMessages = () => {
 			})
 			.then((data) => {
 				setMessages((prevMessages) => [...prevMessages, data]);
-				messageInput.value = "";
+				// messageInput.value = '';
+				// setNewMessage("");
 			})
 			.catch((error) => console.log(error));
 	};
@@ -62,6 +65,14 @@ const DmMessages = () => {
 		}
 	};
 
+		//Time when message in public sent
+		const getCurrentTime = () => {
+			const now = new Date();
+			const hours = now.getHours().toString().padStart(2, "0");
+			const minutes = now.getMinutes().toString().padStart(2, "0");
+			return `${hours}:${minutes}`;
+		};
+
 	return (
 		<>
 			<div className="chat-area">
@@ -74,7 +85,7 @@ const DmMessages = () => {
 					{messages.map((message) => (
 						<section key={message.id}>
 							<p>{message.message}</p>
-							{/* <p>{message.timestamp}</p> */}
+							<p>{message.timestamp}</p>
 							<button
 								onClick={() => handleDeleteMessage(message.id)}
 							>

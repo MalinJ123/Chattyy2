@@ -105,15 +105,16 @@ router.get('/:userId', async (req, res) => {
 // POST /messages
 router.post('/', async (req, res) => {
 	try {
-	  const { userId, message } = req.body;
+	  const { userId, message,  timestamp  } = req.body;
  
 	  await db.read();
  
-	  // Skapa det nya meddelandet
-	  const newMessage = {
-		 userId: userId,
-		 message: message
-	  };
+	   // Skapa det nya meddelandet med aktuell tid
+		const newMessage = {
+			userId: userId,
+			message: message,
+			timestamp: timestamp, // Set the timestamp to the current time
+		 };
  
 	  // Lägg till det nya meddelandet i databasen
 	  db.data.messages.push(newMessage);

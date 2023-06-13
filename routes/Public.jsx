@@ -1,12 +1,11 @@
 // import { useLoaderData, Link } from "react-router-dom";
 // import { getDb } from "../data/database.js";
 
-
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/ContextRoot";
 import OpenChatt from "./OpenChat";
-import image from '../images/fly.jpeg'
+import image from "../images/fly.jpeg";
 
 import { Link } from "react-router-dom";
 // import DmMessages from "../routes/DmMessages";
@@ -80,12 +79,7 @@ function Public() {
 										handleChannelClick("#Öppen chatt")
 									}
 								>
-									<a href="#">
-										{" "}
-										<Link to="/openchat">
-											#Öppen chatt 
-										</Link>{" "}
-									</a>
+									<Link to="/openchat">#Öppen chatt</Link>
 								</li>
 								<li className="logedin">
 									<Link to="/unlocked">#grupp1🔑</Link>
@@ -136,12 +130,11 @@ function Public() {
 										handleChannelClick("#Öppen chatt")
 									}
 								>
-									<a href="#">
-										{" "}
+								
 										<Link to="/openchat">
 											#Öppen chatt 🔑
-										</Link>{" "}
-									</a>
+										</Link>
+								
 								</li>
 
 								<li className="locked">
@@ -151,7 +144,6 @@ function Public() {
 						</nav>
 						<div className="chat-area">
 							<section className="heading">
-				
 								<span className="chat-name">
 									{selectedChannel}{" "}
 								</span>
@@ -159,11 +151,14 @@ function Public() {
 
 							<section className="history">
 								<section className="align-right">
-									<p>  Välkommen till en enkel app </p>
-									<p> 12:34 </p>
+									<p> Välkommen till en enkel app </p>
 								</section>
 
-								<img className ="background-Pic"src={image} alt="En bild på en fjäril" />
+								<img
+									className="background-Pic"
+									src={image}
+									alt="En bild på en fjäril"
+								/>
 								<section>
 									<p>Logga in för de bästa upplevelserna! </p>
 									<p> 13:37 </p>

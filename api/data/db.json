@@ -19,91 +19,27 @@
   "messages": [
     {
       "userId": 1,
-      "message": "hej hur mår du 123?"
-    },
-    {
-      "userId": 2162,
-      "message": "id 3 "
-    },
-    {
-      "userId": 4,
-      "message": " detta är id 4 "
-    },
-    {
-      "userId": 1,
       "message": "heej pelle hur är läget "
     },
     {
       "userId": 1,
-      "message": "heej pelle hur är läget "
+      "message": "Test med time,stamp",
+      "timestamp": "20:50"
     },
     {
       "userId": 1,
-      "message": "heej pelle "
+      "message": "OMFG det Fungerar.",
+      "timestamp": "20:50"
     },
     {
       "userId": 1,
-      "message": "updateProduckt jsx + css i contents"
-    },
-    {
-      "userId": 1,
-      "message": "clearprodukt js och css i data "
-    },
-    {
-      "userId": 1,
-      "message": "addProducts jsx + css"
-    },
-    {
-      "userId": 1,
-      "message": "inga produkter kvar "
-    },
-    {
-      "userId": 1,
-      "message": "gjort merge med dev, msg"
-    },
-    {
-      "userId": 1,
-      "message": "ddddddd"
-    },
-    {
-      "userId": 1,
-      "message": "heeey richard "
-    },
-    {
-      "userId": 1,
-      "message": "Hej marie "
-    },
-    {
-      "userId": 1,
-      "message": "Faan pelle svara då "
-    },
-    {
-      "message": "Öppenchatt test 5 "
-    },
-    {
-      "userId": 1,
-      "message": "DÅ sååå jag är tillbaka "
-    },
-    {
-      "message": "Öppenchatt 13.07 "
-    },
-    {
-      "message": "Öppenchatt 13.07 "
-    },
-    {
-      "userId": 1,
-      "message": "dsfghjnmjhngfd"
-    },
-    {
-      "userId": 1,
-      "message": "ABBE FÖR FAAN "
-    },
-    {
-      "message": "Heeeeeej nu åker jag mot skogen "
+      "message": "JAG ÄR BRILJAAAAAAANT ",
+      "timestamp": "20:50"
     },
     {
       "userId": 997,
-      "message": "Nu är jag inloggad som malin jonsson och förhoppningsvis kommer jag få ett ny id "
+      "message": "Nämen tjenare Admin,, vet du vad klockan är? ",
+      "timestamp": "20:53"
     }
   ]
 }
