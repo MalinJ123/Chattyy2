@@ -8,6 +8,7 @@ import Public from "../routes/Public";
 import Users, {loader as userLoader} from "../routes/Users";
 import PostUser from "../components/AddUser";
 import DmMessages from "../routes/DmMessages";
+import OpenChat from "../routes/OpenChat";
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/messages',
                 element: <DmMessages username="PratgladPelle" />,
+              },
+              {
+                path: '/openchat',
+                element: <OpenChat/>,
               },
         ]
     }

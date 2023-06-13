@@ -1,12 +1,14 @@
 // import { useLoaderData, Link } from "react-router-dom";
 // import { getDb } from "../data/database.js";
 
+
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/ContextRoot";
+import OpenChatt from "./OpenChat";
 
 import { Link } from "react-router-dom";
-import DmMessages from "../routes/DmMessages";
+// import DmMessages from "../routes/DmMessages";
 //backend cant be used in react app.jsx
 // import {getDb} from '../backend/data/database.js'
 // const sessionStorageKey = "jsonWebTokenKEY";
@@ -14,6 +16,7 @@ import DmMessages from "../routes/DmMessages";
 function Public() {
 	const [selectedChannel, setSelectedChannel] = useState(" ");
 	const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+	const [newPublicMessage, setNewPublicMessage] = useState("");
 
 	const handleSendMessage = () => {
 		const message = document.querySelector('input[type="text"]').value;
@@ -68,7 +71,6 @@ function Public() {
 
 								<li>
 									<a href="#">#Öppen chatt </a>{" "}
-									{/* <span className="unread logedin">3</span> */}
 								</li>
 								<li className="logedin">
 									<a href="#">#grupp1 🔑</a>
@@ -116,10 +118,11 @@ function Public() {
 											? "selected"
 											: ""
 									}
-									onClick={() => handleChannelClick("#koda")}
+									onClick={() => handleChannelClick("#Öppen chatt")}
 								>
-									<a href="#"> #Öppen chatt 🔑 </a>
+									<a href="#"> <Link to="/openchat">#Öppen chatt 🔑</Link> </a>
 								</li>
+
 
 								<li className="locked">
 									<a href="#"> #grupp1 🔒 </a>
