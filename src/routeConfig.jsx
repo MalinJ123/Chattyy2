@@ -9,6 +9,7 @@ import Users, {loader as userLoader} from "../routes/Users";
 import PostUser from "../components/AddUser";
 import DmMessages from "../routes/DmMessages";
 import OpenChat from "../routes/OpenChat";
+import Unlocked from "../routes/UnLocked";
 
 
 
@@ -41,7 +42,11 @@ const router = createBrowserRouter([
               {
                 path: '/openchat',
                 element: <OpenChat/>,
+              }, {
+                path: '/unlocked',
+                element: <Unlocked/>,
               },
+
         ]
     }
 ])

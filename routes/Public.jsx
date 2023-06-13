@@ -6,6 +6,7 @@ import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/ContextRoot";
 import OpenChatt from "./OpenChat";
+import image from '../images/fly.jpeg'
 
 import { Link } from "react-router-dom";
 // import DmMessages from "../routes/DmMessages";
@@ -73,9 +74,8 @@ function Public() {
 									<a href="#">#Öppen chatt </a>{" "}
 								</li>
 								<li className="logedin">
-									<a href="#">#grupp1 🔑</a>
+									<Link to="/unlocked">#grupp1</Link>
 								</li>
-
 								<li>
 									<hr />
 								</li>
@@ -118,11 +118,17 @@ function Public() {
 											? "selected"
 											: ""
 									}
-									onClick={() => handleChannelClick("#Öppen chatt")}
+									onClick={() =>
+										handleChannelClick("#Öppen chatt")
+									}
 								>
-									<a href="#"> <Link to="/openchat">#Öppen chatt 🔑</Link> </a>
+									<a href="#">
+										{" "}
+										<Link to="/openchat">
+											#Öppen chatt 🔑
+										</Link>{" "}
+									</a>
 								</li>
-
 
 								<li className="locked">
 									<a href="#"> #grupp1 🔒 </a>
@@ -131,22 +137,22 @@ function Public() {
 						</nav>
 						<div className="chat-area">
 							<section className="heading">
-								Chattar i
+				
 								<span className="chat-name">
-									{" "}
 									{selectedChannel}{" "}
 								</span>
 							</section>
 
 							<section className="history">
 								<section className="align-right">
-									<p> Anonym :D Hej! Hur mår ni idag </p>
-									<p> 17:46 </p>
+									<p>  Välkommen till en enkel app </p>
+									<p> 12:34 </p>
 								</section>
 
+								<img className ="background-Pic"src={image} alt="En bild på en fjäril" />
 								<section>
-									<p> Anonym: tjena! </p>
-									<p> 17:47 </p>
+									<p>Logga in för de bästa upplevelserna! </p>
+									<p> 13:37 </p>
 								</section>
 							</section>
 							<section>
