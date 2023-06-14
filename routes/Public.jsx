@@ -95,20 +95,11 @@ function Public() {
 						</nav>
 						<div className="chat-area">
 							<section className="heading">
-								ENKEL CHAT APP
-								<span className="chat-name"> #Byttefly</span>
-							</section>
-							<section className="history">
-								<section className="align-right">
-									<p>hej</p>
-								</section>
-							</section>
-							<section>
-								<input
-									type="text"
-									placeholder="Ditt meddelande..."
-								/>
-								<button>Skicka</button>
+								<img
+								className="background-Pic"
+								src={image}
+								alt="En bild på en fjäril"
+							/>
 							</section>
 						</div>
 					</main>
@@ -130,11 +121,7 @@ function Public() {
 										handleChannelClick("#Öppen chatt")
 									}
 								>
-								
-										<Link to="/openchat">
-											#Öppen chatt 🔑
-										</Link>
-								
+									<Link to="/openchat">#Öppen chatt 🔑</Link>
 								</li>
 
 								<li className="locked">
@@ -142,40 +129,14 @@ function Public() {
 								</li>
 							</ul>
 						</nav>
-						<div className="chat-area">
-							<section className="heading">
-								<span className="chat-name">
-									{selectedChannel}{" "}
-								</span>
-							</section>
 
-							<section className="history">
-								<section className="align-right">
-									<p> Välkommen till en enkel app </p>
-								</section>
-
-								<img
-									className="background-Pic"
-									src={image}
-									alt="En bild på en fjäril"
-								/>
-								<section>
-									<p>Logga in för de bästa upplevelserna! </p>
-									<p> 13:37 </p>
-								</section>
-							</section>
-							<section>
-								<input
-									type="text"
-									placeholder="Ditt meddelande..."
-								/>
-								<button onClick={handleSendMessage}>
-									{" "}
-									Skicka{" "}
-								</button>
-							</section>
-							{/* <button onClick={handleLogin}>Logga in</button> */}
-						</div>
+						<section className="heading">
+							<img
+								className="background-Pic"
+								src={image}
+								alt="En bild på en fjäril"
+							/>
+						</section>
 					</main>
 				</div>
 			)}

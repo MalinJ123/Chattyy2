@@ -8,12 +8,12 @@
     {
       "id": 997,
       "name": "Malin",
-      "password": "Jonsson"
+      "password": "jonsson"
     },
     {
       "id": 2162,
-      "name": "STeen ",
-      "password": "drtyhjk"
+      "name": "Sten",
+      "password": "Sten"
     }
   ],
   "messages": [
@@ -41,7 +41,6 @@
       "message": "Nämen tjenare Admin,, vet du vad klockan är? ",
       "timestamp": "20:53"
     },
-   
     {
       "userId": 1,
       "message": "gud va kul å vara testperson",
@@ -66,6 +65,65 @@
       "userId": 1,
       "message": "wiho",
       "timestamp": "22:19"
+    },
+    {
+      "userId": 299,
+      "message": " gjort en post från insomnia "
+    },
+    {
+      "message": "Jag villl äta tegelstenar"
+    },
+    {
+      "userId": 997,
+      "message": "senap ",
+      "timestamp": "10:02"
+    },
+    {
+      "userId": 299,
+      "message": " gjort en post från insomnia ",
+      "timestamp": "22:19"
+    },
+    {
+      "userId": 299,
+      "message": " gjort en post från insomnia PUT metod  ",
+      "timestamp": "22:19"
+    },
+    {
+      "userId": 299,
+      "message": " gjort en post från insomnia PUT metod  ",
+      "timestamp": "22:19"
+    },
+    {
+      "message": "Hejjj ABBBE HUR ÄR LÄGET "
+    },
+    {
+      "userId": 1,
+      "message": "heej pelle hur är läget dffffffffffffff",
+      "timestamp": "10:56"
+    },
+    {
+      "userId": 299,
+      "message": " gjort en post från insomnia PUT metod  ",
+      "timestamp": "22:19"
+    },
+    {
+      "message": "Hejjj ABBBE HUR ÄR LÄGET "
+    },
+    {
+      "userId": 997,
+      "message": "Här kommer pippilångstrump",
+      "timestamp": "11:00"
+    },
+    {
+      "message": ""
+    },
+    {
+      "message": "Tjenare Greta "
+    },
+    {
+      "userId": 997,
+      "message": "heej pelle hur är läget ",
+      "timestamp": "11:25"
     }
   ]
 }

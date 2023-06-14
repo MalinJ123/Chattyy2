@@ -8,10 +8,10 @@ const db = getDb()
 
 //GET /messages
 //GET /messages by id
-//DEletes messages all
 //DELETE messages by id
-
+//DEletes messages all
 //POST /messages
+//PUT /messages by id
 
 
 
@@ -129,5 +129,47 @@ router.post('/', async (req, res) => {
 	  res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
 	}
  });
+
+
+
+
+// PUT /messages/:messageId
+router.put('/:messageId', async (req, res) => {
+	try {
+	  const messageId = parseInt(req.params.messageId);
+	  const { userId, message, timestamp } = req.body;
+ 
+	  await db.read();
+ 
+	  const index = db.data.messages.findIndex((message) => message.messageId === messageId);
+ 
+	  if (index === -1) {
+		 console.log("Meddelande med ID", messageId, "hittades inte");
+		 res.status(404).send("Meddelandet hittades inte");
+		 return;
+	  }
+ 
+	  // Uppdatera meddelandet med nya uppgifter
+	  db.data.messages[index] = {
+		 userId: userId,
+		 message: message,
+		 timestamp: timestamp,
+	  };
+ 
+	  console.log("Meddelande med ID", messageId, "har uppdaterats:", db.data.messages[index]);
+ 
+	  await db.write();
+ 
+	  res.status(200).send("Meddelandet har uppdaterats");
+	} catch (error) {
+	  console.log("Ett fel inträffade med att uppdatera meddelandet", error);
+	  res.status(500).send("Ett fel inträffade med att uppdatera meddelandet.");
+	}
+ });
+ 
+
+
+
+
  
  export default router;
