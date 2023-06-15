@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import { getDb } from "../data/database.js";
 import { isValidId, isValidUser } from "../data/validate.js";
 
-
+import SECRET from '../../server.js'
 
 const router = express.Router();
 const db = getDb();

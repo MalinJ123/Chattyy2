@@ -11,6 +11,7 @@ import channelsRouter from "./api/routes/channels.js";
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 31140
+const SECRET = "TeggelESTEN"
 
 //logger and next function
 app.use((req, res, next) => {
@@ -32,7 +33,7 @@ app.options('*', (req, res) => {
 
 
 // -> channels
-app.use('/api/channels', channelsRouter) 
+app.use('/api/channels', channelsRouter)
 // -> messages
 app.use('/api/messages', messagesRouter);
 // -> public
@@ -51,3 +52,4 @@ app.listen(PORT, () => {
 	console.log(`Listening on port ${PORT}...`)
 })
 
+export default SECRET;
