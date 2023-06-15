@@ -107,40 +107,41 @@ router.delete('/', async (req, res) => {
 // POST /messages
 router.post('/', async (req, res) => {
 	try {
-	  const { userId, message, messageId, timestamp } = req.body;
-	  const channelId = req.body.channelId; // Assuming the channel ID is provided in the request body
-	  
-	  await db.read();
-	  
-	  // Find the channel with the specified ID
-	  const channel = db.data.channels.find((c) => c.id === channelId);
-	  
-	  if (!channel) {
-		 throw new Error(`Channel with ID ${channelId} not found.`);
-	  }
-	  
-	  // Create the new message
-	  const newMessage = {
-		 userId: userId,
-		 message: message,
-		 messageId: messageId,
-		 timestamp: timestamp,
-	  };
-	  
-	  // Add the new message to the channel's messages array
-	  channel.messages.push(newMessage);
-	  
-	  console.log('Nytt meddelande skapat:', newMessage);
-	  
-	  await db.write();
-	  
-	  res.status(201).send('Nytt meddelande har skapats');
+		const { userId, message, messageId, timestamp, userName } = req.body;
+		const channelId = req.body.channelId; // Assuming the channel ID is provided in the request body
+
+		await db.read();
+
+		// Find the channel with the specified ID
+		const channel = db.data.channels.find((c) => c.id === channelId);
+
+		if (!channel) {
+			throw new Error(`Channel with ID ${channelId} not found.`);
+		}
+
+		// Create the new message
+		const newMessage = {
+			userId: userId,
+			message: message,
+			messageId: messageId,
+			timestamp: timestamp,
+			userName: userName,
+		};
+
+		// Add the new message to the channel's messages array
+		channel.messages.push(newMessage);
+
+		console.log('Nytt meddelande skapat:', newMessage);
+
+		await db.write();
+
+		res.status(201).send('Nytt meddelande har skapats');
 	} catch (error) {
-	  console.log('Ett fel inträffade med att skapa meddelandet', error);
-	  res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
+		console.log('Ett fel inträffade med att skapa meddelandet', error);
+		res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
 	}
- });
- 
+});
+
 
 
 

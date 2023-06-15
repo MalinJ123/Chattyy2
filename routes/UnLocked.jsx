@@ -5,6 +5,7 @@ function Unlocked() {
 	const [newMessage, setNewMessage] = useState("");
 	const { userId, setUserId } = useContext(UserContext);
 	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
+	const { userName } = useContext(UserContext);
 	useEffect(() => {
 		fetchMessages(); // Fetch messages from the API
 	}, []);
@@ -39,6 +40,7 @@ function Unlocked() {
 				message: newMessage,
 				messageId: messageId,
 				userId: userId || null,
+				userName: userId !== null ? userName : "Anonym",
 				timestamp: timestamp,
 				channelId: currentChannelId || null,
 			}),
@@ -65,13 +67,7 @@ function Unlocked() {
 					{messages.map((message) => (
 						<section key={message.messageId}>
 							<p>{message.message}</p>
-							<p>
-								{message.userId ? (
-									<p>{message.userId}</p>
-								) : (
-									<p>Anonym</p>
-								)}
-							</p>
+							<p>{message.userName}</p>
 							<p>{message.timestamp}</p>
 						</section>
 					))}

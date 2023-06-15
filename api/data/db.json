@@ -1,53 +1,83 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "admin",
-      "password": "mums"
-    },
-    {
-      "id": 997,
-      "name": "Malin",
-      "password": "Jonsson"
-    },
-    {
-      "id": 2162,
-      "name": "Marie ",
-      "password": "jonsson"
-    }
-  ],
-  "channels": [
-    {
-      "open": true,
-      "name": "#Öppen chatt",
-      "id": 1,
-      "messages": [
-        {
-          "userId": null,
-          "message": "bög",
-          "messageId": 6765337853,
-          "timestamp": "2023-06-15 17:26:43"
-        },
-        {
-          "userId": 1,
-          "message": "hejhej bög",
-          "messageId": 8339598350,
-          "timestamp": "2023-06-15 17:29:24"
-        }
-      ]
-    },
-    {
-      "open": false,
-      "name": "#grupp1",
-      "id": 2,
-      "messages": [
-        {
-          "userId": 1,
-          "message": "hejhej",
-          "messageId": 55,
-          "timestamp": "2023-06-15 17:32:55"
-        }
-      ]
-    }
-  ]
+	"users": [
+		{
+			"id": 1,
+			"name": "admin",
+			"password": "mums"
+		},
+		{
+			"id": 997,
+			"name": "Malin",
+			"password": "Jonsson"
+		},
+		{
+			"id": 2162,
+			"name": "Marie ",
+			"password": "jonsson"
+		}
+	],
+	"channels": [
+		{
+			"open": true,
+			"name": "#Öppen chatt",
+			"id": 1,
+			"messages": [
+				{
+					"userId": 1,
+					"message": "heej pelle hur är läget ",
+					"messageId": 9106909949,
+					"timestamp": "2023-06-15 20:18:30",
+					"userName": ""
+				},
+				{
+					"userId": 1,
+					"message": "tjooo",
+					"messageId": 6299105976,
+					"timestamp": "2023-06-15 20:21:37",
+					"userName": ""
+				},
+				{
+					"userId": 1,
+					"message": "tjo katt",
+					"messageId": 5068536150,
+					"timestamp": "2023-06-15 20:21:59",
+					"userName": ""
+				},
+				{
+					"userId": 1,
+					"message": "pepper",
+					"messageId": 3440847382,
+					"timestamp": "2023-06-15 20:24:14",
+					"userName": "admin"
+				},
+				{
+					"userId": null,
+					"message": "hejhej",
+					"messageId": 2583410325,
+					"timestamp": "2023-06-15 20:24:29",
+					"userName": "Anonym"
+				}
+			]
+		},
+		{
+			"open": false,
+			"name": "#grupp1",
+			"id": 2,
+			"messages": [
+				{
+					"userId": 1,
+					"message": "hejhej",
+					"messageId": 55,
+					"timestamp": "2023-06-15 17:32:55"
+				},
+				{
+					"userId": 997,
+					"message": "pepper suger nalle är bäst",
+					"messageId": 70,
+					"timestamp": "2023-06-15 20:25:36",
+					"userName": "Malin"
+				}
+			]
+		}
+	]
 }
