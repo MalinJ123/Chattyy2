@@ -48,18 +48,8 @@ function Public({}) {
 								<li>[Inloggad]</li>
 								<li>[Tillgängliga kanaler]</li>
 
-								<li
-									className={
-										selectedChannel === "#koda"
-											? "selected"
-											: ""
-									}
-									onClick={() =>
-										handleChannelClick("#Öppen chatt")
-									}
-								>
-									{/* <Link to="/openchat">{UserContext.channels[1].name}</Link> */}
-									<Link to="/openchat">#Öppen chatt</Link>
+								<li>
+									<Link to="/openchat">#Öppen chatt 🔑</Link>
 								</li>
 								<li className="logedin">
 									<Link to="/unlocked">#grupp1🔑</Link>
@@ -98,7 +88,7 @@ function Public({}) {
 											: ""
 									}
 									onClick={() =>
-										handleChannelClick(channel.id)
+										handleChannelClick("#Öppen chatt")
 									}
 								>
 									<Link to="/openchat">#Öppen chatt 🔑</Link>

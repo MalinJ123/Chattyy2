@@ -45,8 +45,10 @@ app.use('/api/public', publicRouter)
 // -> users
 app.use('/api/users', usersRouter)
 
+app.use('/api/channels', channelsRouter)
+
 app.get('*', (req, res) => {
-    res.sendFile(join(dist, 'index.html'))
+	res.sendFile(join(dist, 'index.html'))
 })
 
 // Startar servern

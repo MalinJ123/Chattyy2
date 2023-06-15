@@ -24,8 +24,7 @@ const DmMessages = () => {
 		e.preventDefault();
 		const messageInput = e.target.elements.message;
 		const newMessage = messageInput.value;
-		const currentTime = getCurrentTime(); // Get the current timestamp
-
+		const messageId = Math.floor(Math.random() * 101);
 
 		// Spara meddelandet i databasen
 		fetch("/api/messages", {
@@ -33,7 +32,11 @@ const DmMessages = () => {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ userId: userId, message: newMessage, timestamp: currentTime  }), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin
+			body: JSON.stringify({
+				userId: userId,
+				messageId: messageId,
+				message: newMessage,
+			}), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin
 		})
 			.then((response) => {
 				console.log(response);
