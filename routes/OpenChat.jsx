@@ -3,9 +3,8 @@ import { UserContext } from "../src/contextRoot.jsx";
 function OpenChat() {
 	const [messages, setMessages] = useState([]);
 	const [newMessage, setNewMessage] = useState("");
-	const { userId, setUserId } = useContext(UserContext);
-	const { userName } = useContext(UserContext);
-	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
+	const { userId, userName, currentChannelId} = useContext(UserContext);
+
 	useEffect(() => {
 		fetchMessages(); // Fetch messages from the API
 	}, []);
@@ -40,7 +39,7 @@ function OpenChat() {
 				message: newMessage,
 				messageId: messageId,
 				userName: (userId !== null) ? userName : "Anonym",
-				userId: userId || null,
+				userId: (userId !== undefined) ? userId : 0,
 				timestamp: timestamp,
 				channelId: currentChannelId || null,
 			}),
