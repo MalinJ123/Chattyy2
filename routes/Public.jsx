@@ -1,63 +1,42 @@
+//backend cant be used in react app.jsx
 // import { useLoaderData, Link } from "react-router-dom";
 // import { getDb } from "../data/database.js";
 
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/ContextRoot";
-import OpenChatt from "./OpenChat";
 import image from "../images/fly.jpeg";
 
 import { Link } from "react-router-dom";
-// import DmMessages from "../routes/DmMessages";
-//backend cant be used in react app.jsx
-// import {getDb} from '../backend/data/database.js'
-// const sessionStorageKey = "jsonWebTokenKEY";
 
-function Public() {
-	const [selectedChannel, setSelectedChannel] = useState(" ");
+function Public({}) {
+	const [selectedChannel, setSelectedChannel] = useState("");
 	const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
 	const [newPublicMessage, setNewPublicMessage] = useState("");
-
-	const handleSendMessage = () => {
-		const message = document.querySelector('input[type="text"]').value;
-		const chatHistory = document.querySelector(".history");
-
-		if (message.trim() !== "") {
-			const newMessage = document.createElement("section");
-			newMessage.innerHTML = `
-				  <section className="align-right">
-						<p> VänligaVera: ${message} </p>
-						<p> ${getCurrentTime()} </p>
-				  </section>
-			 `;
-			chatHistory.appendChild(newMessage);
-		}
-		// Delete the input field
-		document.querySelector('input[type="text"]').value = "";
-	};
+	const { channels, setChannels } = useContext(UserContext);
 
 	const handleChannelClick = (channel) => {
 		setSelectedChannel(channel);
-		clearChatHistory();
+		setCurrentChannelId(channel);
 	};
 
-	const clearChatHistory = () => {
-		const chatHistory = document.querySelector(".history");
-		chatHistory.innerHTML = "";
-	};
+	// const getChannels = async () => {
+	// 	try {
 
-	//Jag har ingen login på den här sidan längre.
-	const handleLogin = () => {
-		setIsLoggedIn(true);
-	};
-
-	//Time when message in public sent
-	const getCurrentTime = () => {
-		const now = new Date();
-		const hours = now.getHours().toString().padStart(2, "0");
-		const minutes = now.getMinutes().toString().padStart(2, "0");
-		return `${hours}:${minutes}`;
-	};
+	// 		await fetch(`http://localhost:5173/api/channels`, {
+	// 			method: "GET",
+	// 			headers: {
+	// 				"Content-Type": "application/json",
+	// 			},
+	// 			body: JSON.stringify(updatedChannels),
+	// 		}
+	// 		setChannels(updatedChannels);}
+	// 	} catch (error) {
+	// 		console.log("Error updating channel:", error);
+	// 	}
+	// };
+	// useEffect(() => {getChannels()}, [])
 
 	return (
 		<div>
@@ -79,6 +58,7 @@ function Public() {
 										handleChannelClick("#Öppen chatt")
 									}
 								>
+									{/* <Link to="/openchat">{UserContext.channels[1].name}</Link> */}
 									<Link to="/openchat">#Öppen chatt</Link>
 								</li>
 								<li className="logedin">
@@ -96,10 +76,10 @@ function Public() {
 						<div className="chat-area">
 							<section className="heading">
 								<img
-								className="background-Pic"
-								src={image}
-								alt="En bild på en fjäril"
-							/>
+									className="background-Pic"
+									src={image}
+									alt="En bild på en fjäril"
+								/>
 							</section>
 						</div>
 					</main>
@@ -118,7 +98,7 @@ function Public() {
 											: ""
 									}
 									onClick={() =>
-										handleChannelClick("#Öppen chatt")
+										handleChannelClick(channel.id)
 									}
 								>
 									<Link to="/openchat">#Öppen chatt 🔑</Link>

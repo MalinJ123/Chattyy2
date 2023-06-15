@@ -190,6 +190,7 @@ router.put("/:id", async (req, res) => {
 
     let id = Number(req.params.id);
     let oldUser = db.data.users.find((user) => user.id === id);
+    let oldIndex = db.data.users.findIndex((user) => user.id === id);
 
     if (!isValidId(req.params.id)) {
         return res.status(400).send("Ogitligt Id, Kontrollera att det endast är siffror och inte bokstäver");
@@ -199,10 +200,12 @@ router.put("/:id", async (req, res) => {
         return res.status(400).send("Kunde inte hitta användaren, kontrollera att Id  är korrekt");
     }
 
-    oldUser.name = editedUser.name;
-    oldUser.password = editedUser.password;
+    // oldUser.name = editedUser.name;
+    // oldUser.password = editedUser.password;
+    console.log('edited user', oldIndex, editedUser)
 
-    db.data.users[oldUser] = editedUser;
+
+    db.data.users[oldIndex] = editedUser;
     await db.write();
     res.status(200).send(JSON.stringify(editedUser))
 });

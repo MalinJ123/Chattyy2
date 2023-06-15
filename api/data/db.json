@@ -12,118 +12,63 @@
     },
     {
       "id": 2162,
-      "name": "Sten",
-      "password": "Sten"
+      "name": "Ars",
+      "password": "Steen"
+    }
+  ],
+  "channels": [
+    {
+      "id": 1,
+      "name": "OpenChat",
+      "isOpen": true
+    },
+    {
+      "id": 2,
+      "name": "Group1",
+      "isOpen": true
+    },
+    {
+      "undefined": []
     }
   ],
   "messages": [
     {
+      "id": 1,
       "userId": 1,
-      "message": "heej pelle hur är läget "
+      "channelId": 1,
+      "message": "heej, hur är läget",
+      "timestamp": "13:37"
     },
     {
-      "userId": 1,
-      "message": "Test med time,stamp",
-      "timestamp": "20:50"
-    },
-    {
-      "userId": 1,
-      "message": "OMFG det Fungerar.",
-      "timestamp": "20:50"
-    },
-    {
-      "userId": 1,
-      "message": "JAG ÄR BRILJAAAAAAANT ",
-      "timestamp": "20:50"
-    },
-    {
+      "id": 2,
       "userId": 997,
-      "message": "Nämen tjenare Admin,, vet du vad klockan är? ",
-      "timestamp": "20:53"
+      "channelId": 1,
+      "message": "heej pelle",
+      "timestamp": "15:56"
     },
     {
-      "userId": 1,
-      "message": "gud va kul å vara testperson",
-      "timestamp": "22:18"
-    },
-    {
-      "userId": 1,
-      "message": "gud va kul å vara testperson",
-      "timestamp": "22:18"
-    },
-    {
-      "userId": 1,
-      "message": "ghgh",
-      "timestamp": "22:19"
-    },
-    {
-      "userId": 1,
-      "message": "ghgh",
-      "timestamp": "22:19"
-    },
-    {
-      "userId": 1,
-      "message": "wiho",
-      "timestamp": "22:19"
-    },
-    {
-      "userId": 299,
-      "message": " gjort en post från insomnia "
-    },
-    {
-      "message": "Jag villl äta tegelstenar"
-    },
-    {
-      "userId": 997,
-      "message": "senap ",
-      "timestamp": "10:02"
-    },
-    {
-      "userId": 299,
-      "message": " gjort en post från insomnia ",
-      "timestamp": "22:19"
-    },
-    {
-      "userId": 299,
-      "message": " gjort en post från insomnia PUT metod  ",
-      "timestamp": "22:19"
-    },
-    {
-      "userId": 299,
-      "message": " gjort en post från insomnia PUT metod  ",
-      "timestamp": "22:19"
-    },
-    {
-      "message": "Hejjj ABBBE HUR ÄR LÄGET "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle hur är läget dffffffffffffff",
-      "timestamp": "10:56"
-    },
-    {
-      "userId": 299,
-      "message": " gjort en post från insomnia PUT metod  ",
-      "timestamp": "22:19"
-    },
-    {
-      "message": "Hejjj ABBBE HUR ÄR LÄGET "
-    },
-    {
-      "userId": 997,
-      "message": "Här kommer pippilångstrump",
-      "timestamp": "11:00"
-    },
-    {
-      "message": ""
-    },
-    {
-      "message": "Tjenare Greta "
-    },
-    {
-      "userId": 997,
       "message": "heej pelle hur är läget ",
-      "timestamp": "11:25"
+      "timestamp": "22:48"
+    },
+    {
+      "message": "sdfghre",
+      "timestamp": "11:18"
+    },
+    {
+      "message": "ggggg",
+      "timestamp": "11:24"
+    },
+    {
+      "message": "ggggg",
+      "timestamp": "11:26"
+    },
+    {
+      "message": "ggggg",
+      "timestamp": "11:27"
+    },
+    {
+      "message": "hej",
+      "timestamp": "11:53"
     }
   ]
 }

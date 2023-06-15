@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv'
 import publicRouter from "./api/routes/public.js";
 import usersRouter from "./api/routes/users.js";
 import messagesRouter from "./api/routes/messages.js";
+import channelsRouter from "./api/routes/channels.js";
 
 // Express saker
 dotenv.config()
@@ -34,6 +35,9 @@ app.options('*', (req, res) => {
 	res.send();
 });
 
+
+// -> channels
+app.use('/api/channels', channelsRouter) 
 // -> messages
 app.use('/api/messages', messagesRouter);
 // -> public
