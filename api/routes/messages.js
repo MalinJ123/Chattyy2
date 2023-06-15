@@ -16,13 +16,13 @@ const db = getDb()
 
 
 
-//GET /api/messages -> all messages 
+//GET /api/messages -> alla kanalens meddelanden
 router.get('/', async (req, res) => {
 	try {
-		await db.read();
-		const messages = db.data.channels.messages;
+		const currentChannel = req.query.channel; // Assuming the channel parameter is passed as a query parameter
 
-		// console.log("Visar messages-lista", messages);
+		await db.read();
+		const messages = db.data.channels.find((channel) => channel.id === currentChannel)?.messages || [];
 		res.send(messages);
 	} catch (error) {
 		console.log("Detta är vad vi får tillbaka ifrån meddelande listan", error);

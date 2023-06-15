@@ -69,12 +69,7 @@ function Public() {
 								<li>[Tillgängliga kanaler]</li>
 
 								<li>
-									<a href="#">
-										{" "}
-										<Link to="/openchat">
-											#Öppen chatt 🔑
-										</Link>{" "}
-									</a>
+									<Link to="/openchat">#Öppen chatt 🔑</Link>
 								</li>
 								<li className="logedin">
 									<a href="#">#grupp1 🔑</a>
@@ -126,12 +121,7 @@ function Public() {
 										handleChannelClick("#Öppen chatt")
 									}
 								>
-									<a href="#">
-										{" "}
-										<Link to="/openchat">
-											#Öppen chatt 🔑
-										</Link>{" "}
-									</a>
+									<Link to="/openchat">#Öppen chatt 🔑</Link>
 								</li>
 
 								<li className="locked">

@@ -10,13 +10,15 @@ function OpenChat() {
 
 	const fetchMessages = async () => {
 		try {
-			const response = await fetch("http://localhost:5173/api/messages");
-			const data = await response.json();
-			setMessages(data);
+		  const response = await fetch(`http://localhost:5173/api/messages?channel=${currentChannel}`);
+		  const data = await response.json();
+		  const messages = data.channels.find((channel) => channel.id === 1)?.messages || [];
+		  setMessages(messages);
 		} catch (error) {
-			console.log("Error fetching messages:", error);
+		  console.log("Error fetching messages:", error);
 		}
-	};
+	 };
+	 
 
 	const handleMessageSubmit = (e) => {
 		e.preventDefault();
