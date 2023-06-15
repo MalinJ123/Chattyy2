@@ -1,7 +1,6 @@
 // import { useLoaderData, Link } from "react-router-dom";
 // import { getDb } from "../data/database.js";
 
-
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/ContextRoot";
@@ -70,7 +69,12 @@ function Public() {
 								<li>[Tillgängliga kanaler]</li>
 
 								<li>
-									<a href="#">#Öppen chatt </a>{" "}
+									<a href="#">
+										{" "}
+										<Link to="/openchat">
+											#Öppen chatt 🔑
+										</Link>{" "}
+									</a>
 								</li>
 								<li className="logedin">
 									<a href="#">#grupp1 🔑</a>
@@ -118,11 +122,17 @@ function Public() {
 											? "selected"
 											: ""
 									}
-									onClick={() => handleChannelClick("#Öppen chatt")}
+									onClick={() =>
+										handleChannelClick("#Öppen chatt")
+									}
 								>
-									<a href="#"> <Link to="/openchat">#Öppen chatt 🔑</Link> </a>
+									<a href="#">
+										{" "}
+										<Link to="/openchat">
+											#Öppen chatt 🔑
+										</Link>{" "}
+									</a>
 								</li>
-
 
 								<li className="locked">
 									<a href="#"> #grupp1 🔒 </a>

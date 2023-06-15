@@ -1,88 +1,113 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "admin",
-      "password": "mums"
-    },
-    {
-      "id": 997,
-      "name": "Malin",
-      "password": "Jonsson"
-    },
-    {
-      "id": 2162,
-      "name": "Marie ",
-      "password": "jonsson"
-    }
-  ],
-  "messages": [
-    {
-      "userId": 1,
-      "message": "hej hur mår du 123?"
-    },
-    {
-      "userId": 2162,
-      "message": "id 3 "
-    },
-    {
-      "userId": 4,
-      "message": " detta är id 4 "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle hur är läget "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle hur är läget "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle "
-    },
-    {
-      "userId": 1,
-      "message": "updateProduckt jsx + css i contents"
-    },
-    {
-      "userId": 1,
-      "message": "clearprodukt js och css i data "
-    },
-    {
-      "userId": 1,
-      "message": "addProducts jsx + css"
-    },
-    {
-      "userId": 1,
-      "message": "inga produkter kvar "
-    },
-    {
-      "userId": 1,
-      "message": "gjort merge med dev, msg"
-    },
-    {
-      "userId": 1,
-      "message": "ddddddd"
-    },
-    {
-      "userId": 1,
-      "message": "heeey richard "
-    },
-    {
-      "userId": 1,
-      "message": "Hej marie "
-    },
-    {
-      "userId": 1,
-      "message": "Faan pelle svara då "
-    },
-    {
-      "message": "Öppenchatt test 5 "
-    },
-    {
-      "userId": 1,
-      "message": "DÅ sååå jag är tillbaka "
-    }
-  ]
+	"users": [
+		{
+			"id": 1,
+			"name": "admin",
+			"password": "mums"
+		},
+		{
+			"id": 997,
+			"name": "Malin",
+			"password": "Jonsson"
+		},
+		{
+			"id": 2162,
+			"name": "Marie ",
+			"password": "jonsson"
+		}
+	],
+	"channels": [
+		{
+			"open": true,
+			"name": "#Öppen chatt",
+			"id": 1,
+			"messages": [
+				{
+					"userId": 1,
+					"message": "hehehe3",
+					"messageId": 57
+				},
+				{
+					"message": "hej"
+				},
+				{
+					"userId": 1,
+					"message": "dd",
+					"messageId": 77
+				},
+				{
+					"userId": 1,
+					"message": "ddasads",
+					"messageId": 6
+				},
+				{
+					"userId": null,
+					"message": "dasd",
+					"messageId": 11
+				},
+				{
+					"userId": null,
+					"message": "hej",
+					"messageId": 57
+				},
+				{
+					"userId": null,
+					"message": "hej",
+					"messageId": 60
+				},
+				{
+					"userId": 1,
+					"message": "hejinloggad",
+					"messageId": 4
+				},
+				{
+					"userId": null,
+					"message": "hejutloggad",
+					"messageId": 35
+				},
+				{
+					"userId": null,
+					"message": "hejinloggadsommalin",
+					"messageId": 35
+				},
+				{
+					"userId": 997,
+					"message": "HejInloggaMalin2",
+					"messageId": 67
+				}
+			]
+		},
+		{
+			"open": false,
+			"name": "#grupp1",
+			"id": 2,
+			"messages": [
+				{
+					"userId": 1,
+					"message": "hehehe3",
+					"messageId": 57
+				},
+				{
+					"userId": 1,
+					"message": "dd",
+					"messageId": 77
+				},
+				{
+					"userId": 1,
+					"message": "ddasads",
+					"messageId": 6
+				},
+				{
+					"userId": 1,
+					"message": "hejinloggad",
+					"messageId": 4
+				},
+				{
+					"userId": 997,
+					"message": "HejInloggaMalin2",
+					"messageId": 67
+				}
+			]
+		}
+	]
 }
