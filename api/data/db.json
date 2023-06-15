@@ -56,6 +56,20 @@
           "messageId": 2583410325,
           "timestamp": "2023-06-15 20:24:29",
           "userName": "Anonym"
+        },
+        {
+          "userId": null,
+          "message": "Hejjj ABBBE HUR ÄR LÄGET ",
+          "messageId": 479743859,
+          "timestamp": "2023-06-16 00:10:21",
+          "userName": ""
+        },
+        {
+          "userId": 1,
+          "message": "zxc",
+          "messageId": 1851518111,
+          "timestamp": "2023-06-16 00:10:45",
+          "userName": "admin"
         }
       ]
     },
@@ -82,6 +96,20 @@
           "message": "QAWSEDRFGH",
           "messageId": 96,
           "timestamp": "2023-06-16 00:03:01",
+          "userName": "admin"
+        },
+        {
+          "userId": 1,
+          "message": "xcv",
+          "messageId": 100,
+          "timestamp": "2023-06-16 00:10:49",
+          "userName": "admin"
+        },
+        {
+          "userId": 1,
+          "message": "xcv",
+          "messageId": 44,
+          "timestamp": "2023-06-16 00:10:51",
           "userName": "admin"
         }
       ]
