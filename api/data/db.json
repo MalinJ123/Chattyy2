@@ -16,62 +16,38 @@
       "password": "jonsson"
     }
   ],
-  "messages": [
+  "channels": [
     {
-      "userId": 1,
-      "message": "hej hur mår du 123?"
+      "open": true,
+      "name": "#Öppen chatt",
+      "id": 1,
+      "messages": [
+        {
+          "userId": null,
+          "message": "bög",
+          "messageId": 6765337853,
+          "timestamp": "2023-06-15 17:26:43"
+        },
+        {
+          "userId": 1,
+          "message": "hejhej bög",
+          "messageId": 8339598350,
+          "timestamp": "2023-06-15 17:29:24"
+        }
+      ]
     },
     {
-      "userId": 2162,
-      "message": "id 3 "
-    },
-    {
-      "userId": 4,
-      "message": " detta är id 4 "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle hur är läget "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle hur är läget "
-    },
-    {
-      "userId": 1,
-      "message": "heej pelle "
-    },
-    {
-      "userId": 1,
-      "message": "updateProduckt jsx + css i contents"
-    },
-    {
-      "userId": 1,
-      "message": "clearprodukt js och css i data "
-    },
-    {
-      "userId": 1,
-      "message": "addProducts jsx + css"
-    },
-    {
-      "userId": 1,
-      "message": "inga produkter kvar "
-    },
-    {
-      "userId": 1,
-      "message": "gjort merge med dev, msg"
-    },
-    {
-      "userId": 1,
-      "message": "ddddddd"
-    },
-    {
-      "userId": 1,
-      "message": "heeey richard "
-    },
-    {
-      "userId": 1,
-      "message": "Hej marie "
+      "open": false,
+      "name": "#grupp1",
+      "id": 2,
+      "messages": [
+        {
+          "userId": 1,
+          "message": "hejhej",
+          "messageId": 55,
+          "timestamp": "2023-06-15 17:32:55"
+        }
+      ]
     }
   ]
 }

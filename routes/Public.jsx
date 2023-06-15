@@ -1,60 +1,44 @@
+//backend cant be used in react app.jsx
 // import { useLoaderData, Link } from "react-router-dom";
 // import { getDb } from "../data/database.js";
 
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/ContextRoot";
+import image from "../images/fly.jpeg";
 
 import { Link } from "react-router-dom";
-import DmMessages from "../routes/DmMessages";
-//backend cant be used in react app.jsx
-// import {getDb} from '../backend/data/database.js'
-// const sessionStorageKey = "jsonWebTokenKEY";
 
 function Public() {
-	const [selectedChannel, setSelectedChannel] = useState(" ");
+	const [selectedChannel, setSelectedChannel] = useState("");
 	const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
-
-	const handleSendMessage = () => {
-		const message = document.querySelector('input[type="text"]').value;
-		const chatHistory = document.querySelector(".history");
-
-		if (message.trim() !== "") {
-			const newMessage = document.createElement("section");
-			newMessage.innerHTML = `
-				  <section className="align-right">
-						<p> VänligaVera: ${message} </p>
-						<p> ${getCurrentTime()} </p>
-				  </section>
-			 `;
-			chatHistory.appendChild(newMessage);
-		}
-		// Delete the input field
-		document.querySelector('input[type="text"]').value = "";
-	};
+	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
+	const { channels, setChannels } = useContext(UserContext);
 
 	const handleChannelClick = (channel) => {
 		setSelectedChannel(channel);
-		clearChatHistory();
+		setCurrentChannelId(channel);
 	};
 
-	const clearChatHistory = () => {
-		const chatHistory = document.querySelector(".history");
-		chatHistory.innerHTML = "";
+	const getChannels = async () => {
+		try {
+			const response = await fetch("http://localhost:5173/api/channels", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			const channelsData = await response.json();
+			setChannels(channelsData);
+			console.log(channelsData);
+		} catch (error) {
+			console.log("Error fetching channels:", error);
+		}
 	};
 
-	//Jag har ingen login på den här sidan längre.
-	const handleLogin = () => {
-		setIsLoggedIn(true);
-	};
-
-	//Time when message in public sent
-	const getCurrentTime = () => {
-		const now = new Date();
-		const hours = now.getHours().toString().padStart(2, "0");
-		const minutes = now.getMinutes().toString().padStart(2, "0");
-		return `${hours}:${minutes}`;
-	};
+	useEffect(() => {
+		getChannels();
+	}, []);
 
 	return (
 		<div>
@@ -67,13 +51,21 @@ function Public() {
 								<li>[Tillgängliga kanaler]</li>
 
 								<li>
-									<a href="#">#Öppen chatt </a>{" "}
-									{/* <span className="unread logedin">3</span> */}
+									<Link
+										to="/openchat"
+										onClick={() => handleChannelClick(1)}
+									>
+										#Öppen chatt 🔑
+									</Link>
 								</li>
 								<li className="logedin">
-									<a href="#">#grupp1 🔑</a>
+									<Link
+										to="/unlocked"
+										onClick={() => handleChannelClick(2)}
+									>
+										#grupp1🔑
+									</Link>
 								</li>
-
 								<li>
 									<hr />
 								</li>
@@ -85,20 +77,11 @@ function Public() {
 						</nav>
 						<div className="chat-area">
 							<section className="heading">
-								Chattar i
-								<span className="chat-name">#grupp2</span>
-							</section>
-							<section className="history">
-								<section className="align-right">
-									<p>hej</p>
-								</section>
-							</section>
-							<section>
-								<input
-									type="text"
-									placeholder="Ditt meddelande..."
+								<img
+									className="background-Pic"
+									src={image}
+									alt="En bild på en fjäril"
 								/>
-								<button>Skicka</button>
 							</section>
 						</div>
 					</main>
@@ -116,9 +99,9 @@ function Public() {
 											? "selected"
 											: ""
 									}
-									onClick={() => handleChannelClick("#koda")}
+									onClick={() => handleChannelClick(1)}
 								>
-									<a href="#"> #Öppen chatt 🔑 </a>
+									<Link to="/openchat">#Öppen chatt 🔑</Link>
 								</li>
 
 								<li className="locked">
@@ -126,38 +109,14 @@ function Public() {
 								</li>
 							</ul>
 						</nav>
-						<div className="chat-area">
-							<section className="heading">
-								Chattar i
-								<span className="chat-name">
-									{" "}
-									{selectedChannel}{" "}
-								</span>
-							</section>
 
-							<section className="history">
-								<section className="align-right">
-									<p> Anonym :D Hej! Hur mår ni idag </p>
-									<p> 17:46 </p>
-								</section>
-
-								<section>
-									<p> Anonym: tjena! </p>
-									<p> 17:47 </p>
-								</section>
-							</section>
-							<section>
-								<input
-									type="text"
-									placeholder="Ditt meddelande..."
-								/>
-								<button onClick={handleSendMessage}>
-									{" "}
-									Skicka{" "}
-								</button>
-							</section>
-							{/* <button onClick={handleLogin}>Logga in</button> */}
-						</div>
+						<section className="heading">
+							<img
+								className="background-Pic"
+								src={image}
+								alt="En bild på en fjäril"
+							/>
+						</section>
 					</main>
 				</div>
 			)}

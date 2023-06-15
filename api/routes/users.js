@@ -8,6 +8,10 @@ import SECRET from '../../server.js'
 const router = express.Router();
 const db = getDb();
 
+
+
+
+
 // GET Users - hela listan
 router.get("/", async (req, res) => {
     try {
@@ -20,6 +24,40 @@ router.get("/", async (req, res) => {
         res.status(500).send("Ett fel inträffade med att hämta användarna.");
     }
 });
+
+//JWT lektion-kod
+router.get('/authorization', async (req, res) => {
+
+    await db.read()
+
+    const users = db.data.users
+
+    let authHeader = req.headers.authorization
+
+    if (!authHeader) {
+        res.status(401).send({ message: 'Du behöver vara autentiserad för att kunna delta'})
+
+        return
+    }
+
+    let token = authHeader.replace('Bearer: ', '')
+
+    try {
+        let decoded = jwt.verify(token, SECRET)
+        
+        console.log('GET /authorization dekryptat: ', decoded);
+
+        let userId = decoded.userId
+        let user = users.find(user => user.id = userId)
+
+        console.log(`Användaren ${user.username} har tillgång till låsta kanaler!`);
+
+        res.status(202).send({ message: 'Du är autentiserad'})
+    } catch (error) {
+        console.log('GET /authorization felmeddelande: ', error.message)
+        res.status(401).send({message: 'Du blev inte autentiserad!'})
+    }
+})
 
 
 // POST - login
@@ -152,6 +190,7 @@ router.put("/:id", async (req, res) => {
 
     let id = Number(req.params.id);
     let oldUser = db.data.users.find((user) => user.id === id);
+    let oldIndex = db.data.users.findIndex((user) => user.id === id);
 
     if (!isValidId(req.params.id)) {
         return res.status(400).send("Ogitligt Id, Kontrollera att det endast är siffror och inte bokstäver");
@@ -161,10 +200,12 @@ router.put("/:id", async (req, res) => {
         return res.status(400).send("Kunde inte hitta användaren, kontrollera att Id  är korrekt");
     }
 
-    oldUser.name = editedUser.name;
-    oldUser.password = editedUser.password;
+    // oldUser.name = editedUser.name;
+    // oldUser.password = editedUser.password;
+    console.log('edited user', oldIndex, editedUser)
 
-    db.data.users[oldUser] = editedUser;
+
+    db.data.users[oldIndex] = editedUser;
     await db.write();
     res.status(200).send(JSON.stringify(editedUser))
 });

@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv'
 import publicRouter from "./api/routes/public.js";
 import usersRouter from "./api/routes/users.js";
 import messagesRouter from "./api/routes/messages.js";
+import channelsRouter from "./api/routes/channels.js";
 
 // Express saker
 dotenv.config()
@@ -29,6 +30,9 @@ app.options('*', (req, res) => {
 	res.send();
 });
 
+
+// -> channels
+app.use('/api/channels', channelsRouter) 
 // -> messages
 app.use('/api/messages', messagesRouter);
 // -> public
@@ -36,8 +40,10 @@ app.use('/api/public', publicRouter)
 // -> users
 app.use('/api/users', usersRouter)
 
+app.use('/api/channels', channelsRouter)
+
 app.get('*', (req, res) => {
-    res.sendFile(join(dist, 'index.html'))
+	res.sendFile(join(dist, 'index.html'))
 })
 
 // Startar servern

@@ -129,3 +129,9 @@ nav .unread {
 text-underline-offset: none;
 	text-decoration: line-through;
 }
+
+.background-Pic{
+	opacity: 1;
+	width: 22em;
+	height: 16em;
+}
