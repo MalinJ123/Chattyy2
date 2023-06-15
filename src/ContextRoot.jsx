@@ -7,6 +7,7 @@ const ContextRoot = ({ children }) => {
 	const [channels, setChannels] = useState([]);
 	const [showLoginForm, setShowLoginForm] = useState(false);
 	const [userId, setUserId] = useState("");
+    const [userName, setUserName] = useState("");
 	const [currentChannelId, setCurrentChannelId] = useState(null);
 	const sessionStorageKey = "jwt-session";
 
@@ -19,11 +20,13 @@ const ContextRoot = ({ children }) => {
 				userId,
 				currentChannelId,
 				channels,
+                userName,
 				setUserId,
 				setShowLoginForm,
 				setIsLoggedIn,
 				setCurrentChannelId,
 				setChannels,
+                setUserName
 			}}
 		>
 			{children}

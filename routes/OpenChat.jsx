@@ -4,6 +4,7 @@ function OpenChat() {
 	const [messages, setMessages] = useState([]);
 	const [newMessage, setNewMessage] = useState("");
 	const { userId, setUserId } = useContext(UserContext);
+	const { userName } = useContext(UserContext);
 	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
 	useEffect(() => {
 		fetchMessages(); // Fetch messages from the API
@@ -38,6 +39,7 @@ function OpenChat() {
 			body: JSON.stringify({
 				message: newMessage,
 				messageId: messageId,
+				userName: (userId !== null) ? userName : "Anonym",
 				userId: userId || null,
 				timestamp: timestamp,
 				channelId: currentChannelId || null,
@@ -65,7 +67,7 @@ function OpenChat() {
 					{messages.map((message) => (
 						<section key={message.messageId}>
 							<p>{message.message}</p>
-							<p>{(message.userId) ? (<p>{message.userId}</p>) : (<p>Anonym</p>)}</p>
+							<p>{message.userName}</p>
 							<p>{message.timestamp}</p>
 						</section>
 					))}
