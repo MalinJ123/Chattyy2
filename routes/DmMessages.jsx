@@ -68,13 +68,13 @@ const DmMessages = () => {
 		}
 	};
 
-		//Time when message in public sent
-		const getCurrentTime = () => {
-			const now = new Date();
-			const hours = now.getHours().toString().padStart(2, "0");
-			const minutes = now.getMinutes().toString().padStart(2, "0");
-			return `${hours}:${minutes}`;
-		};
+	//Time when message in public sent
+	const getCurrentTime = () => {
+		const now = new Date();
+		const hours = now.getHours().toString().padStart(2, "0");
+		const minutes = now.getMinutes().toString().padStart(2, "0");
+		return `${hours}:${minutes}`;
+	};
 
 	return (
 		<>
@@ -106,7 +106,6 @@ const DmMessages = () => {
 							onChange={(e) => setNewMessage(e.target.value)}
 						/>
 						<button type="submit">Skicka</button>
-            
 					</form>
 				</section>
 			</div>

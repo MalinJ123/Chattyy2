@@ -19,16 +19,18 @@ const db = getDb()
 //GET /api/messages -> alla kanalens meddelanden
 router.get('/', async (req, res) => {
 	try {
-		const currentChannel = req.query.channel; // Assuming the channel parameter is passed as a query parameter
+		const currentChannel = parseInt(req.query.channel); // Assuming the channel parameter is passed as a query parameter and needs to be converted to an integer
 
 		await db.read();
-		const messages = db.data.channels.find((channel) => channel.id === currentChannel)?.messages || [];
+		const channel = db.data.channels.find((channel) => channel.id === currentChannel);
+		const messages = channel?.messages || [];
 		res.send(messages);
 	} catch (error) {
-		console.log("Detta är vad vi får tillbaka ifrån meddelande listan", error);
-		res.status(500).send("Ett fel inträffade med att hämta meddelandena.");
+		console.log("Error retrieving messages:", error);
+		res.status(500).send("An error occurred while fetching the messages.");
 	}
 });
+
 
 // GET /api/messages/:userId 
 router.get('/:userId', async (req, res) => {
@@ -105,32 +107,40 @@ router.delete('/', async (req, res) => {
 // POST /messages
 router.post('/', async (req, res) => {
 	try {
-
-		const { userId, message, messageId } = req.body;
-
-		await db.read();
-
-		// Skapa det nya meddelandet
-		const newMessage = {
-			userId: userId,
-			message: message,
-			messageId: messageId,
-			timestamp: timestamp, // Set the timestamp to the current time
-		};
-
-		// Lägg till det nya meddelandet i databasen
-		db.data.messages.push(newMessage);
-
-		console.log('Nytt meddelande skapat:', newMessage);
-
-		await db.write();
-
-		res.status(201).send('Nytt meddelande har skapats');
+	  const { userId, message, messageId, timestamp } = req.body;
+	  const channelId = req.body.channelId; // Assuming the channel ID is provided in the request body
+	  
+	  await db.read();
+	  
+	  // Find the channel with the specified ID
+	  const channel = db.data.channels.find((c) => c.id === channelId);
+	  
+	  if (!channel) {
+		 throw new Error(`Channel with ID ${channelId} not found.`);
+	  }
+	  
+	  // Create the new message
+	  const newMessage = {
+		 userId: userId,
+		 message: message,
+		 messageId: messageId,
+		 timestamp: timestamp,
+	  };
+	  
+	  // Add the new message to the channel's messages array
+	  channel.messages.push(newMessage);
+	  
+	  console.log('Nytt meddelande skapat:', newMessage);
+	  
+	  await db.write();
+	  
+	  res.status(201).send('Nytt meddelande har skapats');
 	} catch (error) {
-		console.log('Ett fel inträffade med att skapa meddelandet', error);
-		res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
+	  console.log('Ett fel inträffade med att skapa meddelandet', error);
+	  res.status(500).send('Ett fel inträffade med att skapa meddelandet.');
 	}
-});
+ });
+ 
 
 
 

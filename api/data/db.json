@@ -1,50 +1,53 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"name": "admin",
-			"password": "mums"
-		},
-		{
-			"id": 997,
-			"name": "Malin",
-			"password": "Jonsson"
-		},
-		{
-			"id": 2162,
-			"name": "Marie ",
-			"password": "jonsson"
-		}
-	],
-	"channels": [
-		{
-			"open": true,
-			"name": "#Öppen chatt",
-			"id": 1,
-			"messages": [
-				{
-					"userId": 1,
-					"message": "hehehe3",
-					"messageId": 57
-				}
-			]
-		},
-		{
-			"open": false,
-			"name": "#grupp1",
-			"id": 2,
-			"messages": [
-				{
-					"userId": 1,
-					"message": "hejinloggad",
-					"messageId": 4
-				},
-				{
-					"userId": 997,
-					"message": "HejInloggaMalin2",
-					"messageId": 67
-				}
-			]
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "mums"
+    },
+    {
+      "id": 997,
+      "name": "Malin",
+      "password": "Jonsson"
+    },
+    {
+      "id": 2162,
+      "name": "Marie ",
+      "password": "jonsson"
+    }
+  ],
+  "channels": [
+    {
+      "open": true,
+      "name": "#Öppen chatt",
+      "id": 1,
+      "messages": [
+        {
+          "userId": null,
+          "message": "bög",
+          "messageId": 6765337853,
+          "timestamp": "2023-06-15 17:26:43"
+        },
+        {
+          "userId": 1,
+          "message": "hejhej bög",
+          "messageId": 8339598350,
+          "timestamp": "2023-06-15 17:29:24"
+        }
+      ]
+    },
+    {
+      "open": false,
+      "name": "#grupp1",
+      "id": 2,
+      "messages": [
+        {
+          "userId": 1,
+          "message": "hejhej",
+          "messageId": 55,
+          "timestamp": "2023-06-15 17:32:55"
+        }
+      ]
+    }
+  ]
 }

@@ -9,11 +9,10 @@ import image from "../images/fly.jpeg";
 
 import { Link } from "react-router-dom";
 
-function Public({}) {
+function Public() {
 	const [selectedChannel, setSelectedChannel] = useState("");
 	const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
 	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
-	const [newPublicMessage, setNewPublicMessage] = useState("");
 	const { channels, setChannels } = useContext(UserContext);
 
 	const handleChannelClick = (channel) => {
@@ -21,22 +20,25 @@ function Public({}) {
 		setCurrentChannelId(channel);
 	};
 
-	// const getChannels = async () => {
-	// 	try {
+	const getChannels = async () => {
+		try {
+			const response = await fetch("http://localhost:5173/api/channels", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			const channelsData = await response.json();
+			setChannels(channelsData);
+			console.log(channelsData);
+		} catch (error) {
+			console.log("Error fetching channels:", error);
+		}
+	};
 
-	// 		await fetch(`http://localhost:5173/api/channels`, {
-	// 			method: "GET",
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 			},
-	// 			body: JSON.stringify(updatedChannels),
-	// 		}
-	// 		setChannels(updatedChannels);}
-	// 	} catch (error) {
-	// 		console.log("Error updating channel:", error);
-	// 	}
-	// };
-	// useEffect(() => {getChannels()}, [])
+	useEffect(() => {
+		getChannels();
+	}, []);
 
 	return (
 		<div>
@@ -49,10 +51,20 @@ function Public({}) {
 								<li>[Tillgängliga kanaler]</li>
 
 								<li>
-									<Link to="/openchat">#Öppen chatt 🔑</Link>
+									<Link
+										to="/openchat"
+										onClick={() => handleChannelClick(1)}
+									>
+										#Öppen chatt 🔑
+									</Link>
 								</li>
 								<li className="logedin">
-									<Link to="/unlocked">#grupp1🔑</Link>
+									<Link
+										to="/unlocked"
+										onClick={() => handleChannelClick(2)}
+									>
+										#grupp1🔑
+									</Link>
 								</li>
 								<li>
 									<hr />
@@ -87,9 +99,7 @@ function Public({}) {
 											? "selected"
 											: ""
 									}
-									onClick={() =>
-										handleChannelClick("#Öppen chatt")
-									}
+									onClick={() => handleChannelClick(1)}
 								>
 									<Link to="/openchat">#Öppen chatt 🔑</Link>
 								</li>

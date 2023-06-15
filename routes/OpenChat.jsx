@@ -4,28 +4,31 @@ function OpenChat() {
 	const [messages, setMessages] = useState([]);
 	const [newMessage, setNewMessage] = useState("");
 	const { userId, setUserId } = useContext(UserContext);
+	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
 	useEffect(() => {
 		fetchMessages(); // Fetch messages from the API
 	}, []);
 
 	const fetchMessages = async () => {
+		console.log(currentChannelId);
 		try {
-		  const response = await fetch(`http://localhost:5173/api/messages?channel=${currentChannel}`);
-		  const data = await response.json();
-		  const messages = data.channels.find((channel) => channel.id === 1)?.messages || [];
-		  setMessages(messages);
+			const response = await fetch(
+				`http://localhost:5173/api/messages?channel=${currentChannelId}`
+			);
+			const data = await response.json();
+			const messages = data || [];
+			setMessages(messages);
 		} catch (error) {
-		  console.log("Error fetching messages:", error);
+			console.log("Error fetching messages:", error);
 		}
-	 };
-	 
+	};
 
 	const handleMessageSubmit = (e) => {
 		e.preventDefault();
 		const messageInput = e.target.elements.message;
 		const newMessage = messageInput.value;
-		const messageId = Math.floor(Math.random() * 101);
-
+		const messageId = Math.floor(Math.random() * 10233124121);
+		const timestamp = new Date().toLocaleString();
 		// Save the message in the database
 		fetch("/api/messages", {
 			method: "POST",
@@ -36,6 +39,8 @@ function OpenChat() {
 				message: newMessage,
 				messageId: messageId,
 				userId: userId || null,
+				timestamp: timestamp,
+				channelId: currentChannelId || null,
 			}),
 		})
 			.then((response) => response.json())
@@ -58,8 +63,9 @@ function OpenChat() {
 
 				<section className="history">
 					{messages.map((message) => (
-						<section key={message.id}>
+						<section key={message.messageId}>
 							<p>{message.message}</p>
+							<p>{(message.userId) ? (<p>{message.userId}</p>) : (<p>Anonym</p>)}</p>
 							<p>{message.timestamp}</p>
 						</section>
 					))}
