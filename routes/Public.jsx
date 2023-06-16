@@ -22,7 +22,7 @@ function Public() {
 
 	const getChannels = async () => {
 		try {
-			const response = await fetch("http://localhost:5173/api/channels", {
+			const response = await fetch("https://chatty-chat-app.onrender.com/api/channels", {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",

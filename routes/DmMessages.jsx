@@ -12,7 +12,7 @@ const DmMessages = () => {
 
 	const fetchMessages = async () => {
 		try {
-			const response = await fetch("http://localhost:5173/api/messages");
+			const response = await fetch("https://chatty-chat-app.onrender.com/api/messages");
 			const data = await response.json();
 			setMessages(data);
 		} catch (error) {
