@@ -12,8 +12,8 @@
     },
     {
       "id": 2162,
-      "name": "Marie ",
-      "password": "jonsson"
+      "name": "admin2",
+      "password": "tegelsten"
     }
   ],
   "channels": [
@@ -23,39 +23,53 @@
       "id": 1,
       "messages": [
         {
-          "userId": 1,
-          "message": "heej pelle hur är läget ",
-          "messageId": 9106909949,
-          "timestamp": "2023-06-15 20:18:30",
+          "userId": null,
+          "message": "Detta tillhör öppet chattrum",
+          "messageId": 6138138221,
+          "timestamp": "2023-06-16 09:47:06",
           "userName": ""
-        },
-        {
-          "userId": 1,
-          "message": "tjooo",
-          "messageId": 6299105976,
-          "timestamp": "2023-06-15 20:21:37",
-          "userName": ""
-        },
-        {
-          "userId": 1,
-          "message": "tjo katt",
-          "messageId": 5068536150,
-          "timestamp": "2023-06-15 20:21:59",
-          "userName": ""
-        },
-        {
-          "userId": 1,
-          "message": "pepper",
-          "messageId": 3440847382,
-          "timestamp": "2023-06-15 20:24:14",
-          "userName": "admin"
         },
         {
           "userId": null,
-          "message": "hejhej",
-          "messageId": 2583410325,
-          "timestamp": "2023-06-15 20:24:29",
-          "userName": "Anonym"
+          "message": "Man måste backa och gå fram för att visa meddelandet i vyn",
+          "messageId": 1875466663,
+          "timestamp": "2023-06-16 09:47:29",
+          "userName": ""
+        },
+        {
+          "userId": 1,
+          "message": "Detta meddelande kommer från en inloggad användare",
+          "messageId": 9530914352,
+          "timestamp": "2023-06-16 09:48:22",
+          "userName": "admin"
+        },
+        {
+          "userId": 997,
+          "message": "Detta meddelandet är skrivet från inloggad Malin",
+          "messageId": 3643589068,
+          "timestamp": "2023-06-16 09:50:36",
+          "userName": "Malin"
+        },
+        {
+          "userId": 997,
+          "message": "heey",
+          "messageId": 8249263659,
+          "timestamp": "2023-06-16 09:52:41",
+          "userName": "malin"
+        },
+        {
+          "userId": null,
+          "message": "sista test",
+          "messageId": 8729158711,
+          "timestamp": "2023-06-16 10:11:54",
+          "userName": ""
+        },
+        {
+          "userId": 1,
+          "message": "sista meddelandet som inloggad i öppenchatt",
+          "messageId": 4995457003,
+          "timestamp": "2023-06-16 10:12:20",
+          "userName": "admin"
         }
       ]
     },
@@ -66,22 +80,30 @@
       "messages": [
         {
           "userId": 1,
-          "message": "hejhej",
-          "messageId": 55,
-          "timestamp": "2023-06-15 17:32:55"
+          "message": "Detta meddelande ligger i gruppchatt 1 ",
+          "messageId": 0,
+          "timestamp": "2023-06-16 09:48:59",
+          "userName": "admin"
+        },
+        {
+          "userId": 1,
+          "message": "Man måste vara inloggad för att skriva här ",
+          "messageId": 41,
+          "timestamp": "2023-06-16 09:49:16",
+          "userName": "admin"
         },
         {
           "userId": 997,
-          "message": "pepper suger nalle är bäst",
-          "messageId": 70,
-          "timestamp": "2023-06-15 20:25:36",
+          "message": "Ha det bäst",
+          "messageId": 24,
+          "timestamp": "2023-06-16 09:51:36",
           "userName": "Malin"
         },
         {
           "userId": 1,
-          "message": "QAWSEDRFGH",
-          "messageId": 96,
-          "timestamp": "2023-06-16 00:03:01",
+          "message": "sista meddelandet som inloggad grupp1",
+          "messageId": 47,
+          "timestamp": "2023-06-16 10:12:46",
           "userName": "admin"
         }
       ]

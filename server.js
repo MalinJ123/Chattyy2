@@ -11,7 +11,11 @@ import channelsRouter from "./api/routes/channels.js";
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 31140
-const SECRET = "TeggelESTEN"
+const SECRET = 'tegelsten'
+
+app.use(express.json())
+
+// middleware and logger
 
 //logger and next function
 app.use((req, res, next) => {
@@ -41,7 +45,6 @@ app.use('/api/public', publicRouter)
 // -> users
 app.use('/api/users', usersRouter)
 
-app.use('/api/channels', channelsRouter)
 
 app.get('*', (req, res) => {
 	res.sendFile(join(dist, 'index.html'))
