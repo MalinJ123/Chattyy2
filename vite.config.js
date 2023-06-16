@@ -8,5 +8,10 @@ export default defineConfig({
     proxy: {
       '/api': "https://chatty-chat-app.onrender.com"
     }
+  },
+  build: {
+    rollupOptions: {
+      external: ['react-dom/client'],
+    },
   }
 })
