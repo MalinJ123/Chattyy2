@@ -5,7 +5,7 @@ import { deletUser } from "../data/deleteUser";
 import { Link } from "react-router-dom";
 import { updateUser } from "../data/updateUser";
 import { useState, useContext } from "react";
-import { UserContext } from "./src/ContextRoot.jsx";
+import { UserContext } from "../src/ContextRoot.jsx";
 export const loader = () => getUsers();
 
 const Users = () => {

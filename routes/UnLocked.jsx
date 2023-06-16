@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "./src/ContextRoot.jsx";
+import { UserContext } from "../src/ContextRoot.jsx";
 function Unlocked() {
 	const [messages, setMessages] = useState([]);
 	const [newMessage, setNewMessage] = useState("");
