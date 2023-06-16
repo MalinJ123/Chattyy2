@@ -36,7 +36,6 @@ const LoginForm = () => {
 			if (loginStatus.loggedIn == "Success") {
 				let jwt = loginStatus.token;
 				sessionStorage.setItem(sessionStorageKey, "Bearer: " + jwt);
-
 				setIsLoggedIn(true);
 				setUserId(loginStatus.id);
 				setShowLoginForm(false);
