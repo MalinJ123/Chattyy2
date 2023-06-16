@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "./src/contextRoot";
+import { UserContext } from "./src/contextRoot.jsx";
 
 const DmMessages = () => {
 	const [messages, setMessages] = useState([]);
