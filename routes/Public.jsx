@@ -4,7 +4,7 @@
 
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../src/ContextRoot";
+import { UserContext } from "../src/ContextRoot.jsx";
 import image from "../images/fly.jpeg";
 
 import { Link } from "react-router-dom";
