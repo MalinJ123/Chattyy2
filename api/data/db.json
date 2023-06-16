@@ -49,27 +49,6 @@
           "messageId": 3643589068,
           "timestamp": "2023-06-16 09:50:36",
           "userName": "Malin"
-        },
-        {
-          "userId": 997,
-          "message": "heey",
-          "messageId": 8249263659,
-          "timestamp": "2023-06-16 09:52:41",
-          "userName": "malin"
-        },
-        {
-          "userId": null,
-          "message": "sista test",
-          "messageId": 8729158711,
-          "timestamp": "2023-06-16 10:11:54",
-          "userName": ""
-        },
-        {
-          "userId": 1,
-          "message": "sista meddelandet som inloggad i öppenchatt",
-          "messageId": 4995457003,
-          "timestamp": "2023-06-16 10:12:20",
-          "userName": "admin"
         }
       ]
     },
