@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': "http://localhost:31140/"
+      '/api': "https://chatty-chat-app.onrender.com"
     }
   }
 })
