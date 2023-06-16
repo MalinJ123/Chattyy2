@@ -6,22 +6,31 @@ This repository contains a school project called chappy the chat app. The projec
        
 ### Modeling
 
-This modeling describes the structure for users and chat messages in an application. Below is an overview of the different properties and data types used.
+This document describes the structure for users, chat messages, and channels in this application. Below is an overview of the different properties and data types used.
 
 #### User
 
-  Properties:
+-   Properties:
     -   id: Unique identifier for the user (string)
-    -   username: Username (string)
-    -   password: Password (string)
+    -   name: User's name (string)
+    -   password: User's password (string)
 
 #### ChatMessage
 
-   Properties:
+-   Properties:
     -   userId: Identifies the user who sent the message (string)
-    -   messages: Message text (string)
-    -   timestamp: Time when the message was sent (timestamp) 
-  
+    -   message: The content of the message (string)
+    -   messageId: Unique identifier for the message (integer)
+    -   timestamp: Time when the message was sent (string)
+    -   userName: Username associated with the user who sent the message (string)
+
+#### Channels
+
+-   Properties:
+    -   open: Indicates whether the channel is open or closed (boolean)
+    -   name: Name of the channel (string)
+    -   id: Unique identifier for the channel (integer)
+    -   messages: List of messages in the channel (array of ChatMessage objects)
 ----
 
 ### Getting Started
@@ -69,19 +78,15 @@ The project interacts with the following endpoints using various HTTP methods:
 ```
  [DELETE] /messages 
 ```
-##### Delete product by Id
+##### Delete message by Id
 ```
  [DELETE] /messages/:id 
+``` 
+##### Put message by Id
 ```
-##### Edit a product 
-```
- [PUT] /messages/:id  ==== FINNS INTE ÄNNU  . EXEMPEL
- {	
-      "userId": 1,
-      "message": "Edit message?"
-    }
-```
-____________________
+ [PUT] /messages/:id 
+``` 
+___________________
 
 #### `/users` Endpoint
 
@@ -122,7 +127,19 @@ ____________________
  [PUT] /users/:id
 ```
 -   `PUT`: Used to update an existing resource, such as modifying a user.
-____________________
+___________________
+
+#### `/channels` Endpoint
+
+-   HTTP Method: `GET` 
+
+-   Usage: This endpoint is used to retrieve, delete, change and fetch a list of all channels available.
+- 
+##### Get channels
+```
+ [GET] /channels
+ ```
+___________________
 
 ### Development
 
