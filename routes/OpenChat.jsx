@@ -13,7 +13,7 @@ function OpenChat() {
 		console.log(currentChannelId);
 		try {
 			const response = await fetch(
-				`http://localhost:5173/api/messages?channel=${currentChannelId}`
+				`https://chatty-chat-app.onrender.com/api/messages?channel=${currentChannelId}`
 			);
 			const data = await response.json();
 			const messages = data || [];
