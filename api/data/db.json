@@ -11,9 +11,9 @@
       "password": "Jonsson"
     },
     {
-      "id": 2162,
-      "name": "admin2",
-      "password": "tegelsten"
+      "id": 1587,
+      "name": "Diablo",
+      "password": "Katt"
     }
   ],
   "channels": [
@@ -63,13 +63,6 @@
           "messageId": 8729158711,
           "timestamp": "2023-06-16 10:11:54",
           "userName": ""
-        },
-        {
-          "userId": 1,
-          "message": "sista meddelandet som inloggad i öppenchatt",
-          "messageId": 4995457003,
-          "timestamp": "2023-06-16 10:12:20",
-          "userName": "admin"
         }
       ]
     },

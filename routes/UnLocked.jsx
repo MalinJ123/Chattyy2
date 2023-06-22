@@ -1,23 +1,34 @@
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "../src/contextRoot.jsx";
+
 function Unlocked() {
 	const [messages, setMessages] = useState([]);
 	const [newMessage, setNewMessage] = useState("");
-	const { userId, setUserId } = useContext(UserContext);
-	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
-	const { userName } = useContext(UserContext);
+	const userContext = useContext(UserContext);
+	const { userId, userName, currentChannelId, sessionStorageKey } =
+		userContext;
+
 	useEffect(() => {
-		fetchMessages(); // Fetch messages from the API
+		fetchMessages(); 
 	}, []);
 
 	const fetchMessages = async () => {
-		console.log(currentChannelId);
 		try {
+			const tokenWithBearer = sessionStorage.getItem(sessionStorageKey);
+			const token = tokenWithBearer.split(" ")[1];
+			console.log(token);
 			const response = await fetch(
-				`http://localhost:5173/api/messages?channel=${currentChannelId}`
+				`http://localhost:5173/api/messages?channel=${currentChannelId}`,
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
 			);
-			const data = await response.json();
-			const messages = data || [];
+			const fetchData = await response.json();
+			console.log(fetchData);
+			const messages = fetchData || [];
+
 			setMessages(messages);
 		} catch (error) {
 			console.log("Error fetching messages:", error);
@@ -30,31 +41,35 @@ function Unlocked() {
 		const newMessage = messageInput.value;
 		const messageId = Math.floor(Math.random() * 101);
 		const timestamp = new Date().toLocaleString();
-		// Save the message in the database
-		fetch("/api/messages", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				message: newMessage,
-				messageId: messageId,
-				userId: userId || null,
-				userName: userId !== null ? userName : "Anonym",
-				timestamp: timestamp,
-				channelId: currentChannelId || null,
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				// Add the new message to the state
-				setMessages((prevMessages) => [...prevMessages, data]);
-				// Clear the input field
-				setNewMessage("");
-			})
-			.catch((error) => console.log(error));
-	};
+		const token = sessionStorage.getItem(sessionStorageKey);
 
+		// Save the message in the database
+		if (currentChannelId === 2 && token !== null) {
+			fetch("/api/messages", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify({
+					message: newMessage,
+					messageId: messageId,
+					userId: userId || null,
+					userName: userId !== null ? userName : "Anonym",
+					timestamp: timestamp,
+					channelId: currentChannelId || null,
+				}),
+			})
+				.then((response) => response.json())
+				.then((data) => {
+					setMessages((prevMessages) => [...prevMessages, data]);
+					setNewMessage("");
+				})
+				.catch((error) => console.log(error));
+		} else {
+			alert("Not Authorized");
+		}
+	};
 	return (
 		<>
 			<div className="chat-area">

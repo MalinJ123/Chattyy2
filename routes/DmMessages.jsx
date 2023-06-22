@@ -7,7 +7,7 @@ const DmMessages = () => {
 	const { userId, setUserId } = useContext(UserContext);
 
 	useEffect(() => {
-		fetchMessages(); // Fetch meddelanden från API
+		fetchMessages(); 
 	}, []);
 
 	const fetchMessages = async () => {
@@ -36,7 +36,7 @@ const DmMessages = () => {
 				userId: userId,
 				messageId: messageId,
 				message: newMessage,
-			}), // Anpassa userId för användaren som skriver meddelandet, Nu står 1 för admin
+			}), 
 		})
 			.then((response) => {
 				console.log(response);
@@ -44,8 +44,7 @@ const DmMessages = () => {
 			})
 			.then((data) => {
 				setMessages((prevMessages) => [...prevMessages, data]);
-				// messageInput.value = '';
-				// setNewMessage("");
+		
 			})
 			.catch((error) => console.log(error));
 	};
@@ -59,7 +58,6 @@ const DmMessages = () => {
 				},
 				body: JSON.stringify({ userId: userId, message: newMessage }),
 			});
-			// Uppdatera meddelandena i state efter borttagning
 			setMessages((prevMessages) =>
 				prevMessages.filter((message) => message.id !== messageId)
 			);

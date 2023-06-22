@@ -7,7 +7,7 @@ function OpenChat() {
 	const { userName } = useContext(UserContext);
 	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
 	useEffect(() => {
-		fetchMessages(); // Fetch messages from the API
+		fetchMessages(); 
 	}, []);
 
 	const fetchMessages = async () => {
@@ -30,6 +30,7 @@ function OpenChat() {
 		const newMessage = messageInput.value;
 		const messageId = Math.floor(Math.random() * 10233124121);
 		const timestamp = new Date().toLocaleString();
+
 		// Save the message in the database
 		fetch("/api/messages", {
 			method: "POST",
@@ -47,9 +48,7 @@ function OpenChat() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				// Add the new message to the state
 				setMessages((prevMessages) => [...prevMessages, data]);
-				// Clear the input field
 				setNewMessage("");
 			})
 			.catch((error) => console.log(error));

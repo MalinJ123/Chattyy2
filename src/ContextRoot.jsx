@@ -1,32 +1,32 @@
 import { useState, createContext } from "react";
 
 export const UserContext = createContext();
-
+export const sessionStorageKey = "jwt-session";
 const ContextRoot = ({ children }) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [channels, setChannels] = useState([]);
 	const [showLoginForm, setShowLoginForm] = useState(false);
 	const [userId, setUserId] = useState("");
-    const [userName, setUserName] = useState("");
+	const [userName, setUserName] = useState("");
 	const [currentChannelId, setCurrentChannelId] = useState(null);
-	const sessionStorageKey = "jwt-session";
 
 	return (
 		<UserContext.Provider
 			value={{
+				sessionStorage,
 				sessionStorageKey,
 				isLoggedIn,
 				showLoginForm,
 				userId,
 				currentChannelId,
 				channels,
-                userName,
+				userName,
 				setUserId,
 				setShowLoginForm,
 				setIsLoggedIn,
 				setCurrentChannelId,
 				setChannels,
-                setUserName
+				setUserName,
 			}}
 		>
 			{children}
