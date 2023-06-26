@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "../src/ContextRoot.jsx";
+import { UserContext } from "../src/contextRoot";
 
 const DmMessages = () => {
 	const [messages, setMessages] = useState([]);
@@ -12,7 +12,7 @@ const DmMessages = () => {
 
 	const fetchMessages = async () => {
 		try {
-			const response = await fetch("https://chatty-chat-app.onrender.com/api/messages");
+			const response = await fetch("http://localhost:5173/api/messages");
 			const data = await response.json();
 			setMessages(data);
 		} catch (error) {

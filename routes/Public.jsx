@@ -4,7 +4,7 @@
 
 import "../stylesheet/public.css";
 import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../src/ContextRoot.jsx";
+import { UserContext } from "../src/ContextRoot";
 import image from "../images/fly.jpeg";
 
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ function Public() {
 
 	const getChannels = async () => {
 		try {
-			const response = await fetch("https://chatty-chat-app.onrender.com/api/channels", {
+			const response = await fetch("http://localhost:5173/api/channels", {
 				method: "GET",
 				headers: {
 					"Content-Type": "application/json",

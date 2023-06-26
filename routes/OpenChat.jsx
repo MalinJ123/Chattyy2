@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { UserContext } from "../src/ContextRoot.jsx";
+import { UserContext } from "../src/contextRoot.jsx";
 function OpenChat() {
 	const [messages, setMessages] = useState([]);
 	const [newMessage, setNewMessage] = useState("");
-	const { userId, userName, currentChannelId} = useContext(UserContext);
-
+	const { userId, setUserId } = useContext(UserContext);
+	const { userName } = useContext(UserContext);
+	const { currentChannelId, setCurrentChannelId } = useContext(UserContext);
 	useEffect(() => {
 		fetchMessages(); 
 	}, []);
@@ -13,7 +14,7 @@ function OpenChat() {
 		console.log(currentChannelId);
 		try {
 			const response = await fetch(
-				`https://chatty-chat-app.onrender.com/api/messages?channel=${currentChannelId}`
+				`http://localhost:5173/api/messages?channel=${currentChannelId}`
 			);
 			const data = await response.json();
 			const messages = data || [];
@@ -40,7 +41,7 @@ function OpenChat() {
 				message: newMessage,
 				messageId: messageId,
 				userName: (userId !== null) ? userName : "Anonym",
-				userId: (userId !== undefined) ? userId : 0,
+				userId: userId || null,
 				timestamp: timestamp,
 				channelId: currentChannelId || null,
 			}),
