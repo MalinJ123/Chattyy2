@@ -1,10 +1,8 @@
-import { API_URL } from "./constants.js";
-
 async function addUser(user) {
-  
   const data = {
     name: user.name,
-    password: user.password
+    password: user.password,
+    id: user.userId
   };
   const options = {
     method: "POST",
@@ -13,12 +11,12 @@ async function addUser(user) {
     },
     body: JSON.stringify(data),
   };
-  const response = await fetch(API_URL + "users/", options);
+  const response = await fetch(import.meta.env.VITE_API_URL + "users/", options);
   const statusObject = await response.json();
-  if(statusObject){
-    return true
+  if (statusObject) {
+    return true;
   }
-  console.log("response from Api", statusObject);
+  console.log("Response from API:", statusObject);
   return false;
 }
 

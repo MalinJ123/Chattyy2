@@ -8,15 +8,8 @@ const LoginForm = () => {
 	const { userName, setUserName } = useContext(UserContext);
 	const [userPassword, setUserPassword] = useState("");
 
-	// const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
-	// const {setShowLoginForm} = useContext(LoginContext);
-	const {
-		sessionStorageKey,
-		isLoggedIn,
-		setIsLoggedIn,
-		setShowLoginForm,
-		setUserId,
-	} = useContext(UserContext);
+	const { setIsLoggedIn, setShowLoginForm, setUserId, sessionStorageKey } =
+		useContext(UserContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -29,17 +22,14 @@ const LoginForm = () => {
 				password: userPassword,
 			});
 
-			console.log(loginStatus.loggedIn);
-
-			if (loginStatus.loggedIn == "Success") {
-				let jwt = loginStatus.token;
-				sessionStorage.setItem(sessionStorageKey, "Bearer: " + jwt);
+			if (loginStatus.status === "Success") {
 				setIsLoggedIn(true);
 				setUserId(loginStatus.id);
 				setShowLoginForm(false);
+
+			} else {
+				console.log("Gick inte att logga in!");
 			}
-		} else {
-			console.log("Gick inte att logga in!");
 		}
 	};
 
