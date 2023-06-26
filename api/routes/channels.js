@@ -1,7 +1,6 @@
 import express from "express";
 import { getDb } from "../data/database.js";
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+
 
 const router = express.Router();
 const db = getDb();
