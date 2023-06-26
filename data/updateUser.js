@@ -1,5 +1,3 @@
-import { API_URL } from "./constants.js";
-
 async function updateUser(user) {
   const options = {
     method: "PUT",
@@ -8,12 +6,12 @@ async function updateUser(user) {
     },
     body: JSON.stringify(user),
   };
-  const response = await fetch(API_URL + "users/" + user.id, options);
+  const response = await fetch(import.meta.env.VITE_API_URL + "users/" + user.id, options);
   const statusObject = await response.json();
   if (statusObject) {
     return true;
   }
-  console.log("response from Api", statusObject);
+  console.log("Response from API:", statusObject);
   return false;
 }
 

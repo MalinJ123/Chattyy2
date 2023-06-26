@@ -1,7 +1,7 @@
 import { getUsers } from "../data/getUsers";
 import { useLoaderData } from "react-router-dom";
 import "../stylesheet/users.css";
-import { deletUser } from "../data/deleteUser";
+import { deleteUser } from "../data/deleteUser";
 import { Link } from "react-router-dom";
 import { updateUser } from "../data/updateUser";
 import { useState, useContext } from "react";
@@ -19,7 +19,7 @@ const Users = () => {
 	const handleDelete = async (userId) => {
 		console.log(userId);
 		try {
-			const result = await deletUser(userId);
+			const result = await deleteUser(userId);
 			console.log(result);
 		} catch (error) {
 			console.log(error.message);

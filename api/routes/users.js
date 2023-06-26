@@ -40,18 +40,14 @@ router.get('/authorization', async (req, res) => {
         return
     }
 
-    let token = authHeader.replace('Bearer: ', '')
+    const token = req.headers.authorization?.split(' ')[1];
 
     try {
         let decoded = jwt.verify(token, SECRET)
-        
         console.log('GET /authorization dekryptat: ', decoded);
-
         let userId = decoded.userId
         let user = users.find(user => user.id = userId)
-
         console.log(`Användaren ${user.username} har tillgång till låsta kanaler!`);
-
         res.status(202).send({ message: 'Du är autentiserad'})
     } catch (error) {
         console.log('GET /authorization felmeddelande: ', error.message)
@@ -63,11 +59,9 @@ router.get('/authorization', async (req, res) => {
 // POST - login
 router.post("/login", async (req, res) => {
 
-    // Reading database
     await db.read()
     const users = db.data.users
 
-    // Variables for requesting body data
     let userName = req.body.name
     let userPassword = req.body.password
 
@@ -76,7 +70,6 @@ router.post("/login", async (req, res) => {
         return
     }
 
-    // Check if User (username) exists
     let findUser = users.find(user => user.name === userName)
 
     if (!findUser) {
@@ -200,8 +193,7 @@ router.put("/:id", async (req, res) => {
         return res.status(400).send("Kunde inte hitta användaren, kontrollera att Id  är korrekt");
     }
 
-    // oldUser.name = editedUser.name;
-    // oldUser.password = editedUser.password;
+
     console.log('edited user', oldIndex, editedUser)
 
 
