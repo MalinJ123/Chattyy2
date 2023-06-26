@@ -3,6 +3,8 @@ import { sessionStorageKey } from '../src/ContextRoot';
 
 async function loginUser(oneUser) {
     console.log("Logging in user...");
+
+    const token = sessionStorage.getItem(sessionStorageKey);
     const options = {
         method: 'POST',
         headers: {
